@@ -18,10 +18,10 @@ or die("<br>Erro: ".mysqli_error($con));
     <?php
     // Colocando os dados retornados pela consulta em um vetor $resultado
     while ($resultado = mysqli_fetch_array($query)) {
-      ?>
+        ?>
       <a href="curso_escolhido.php?c=<?php echo $resultado["curso"] ?>" class="btn btn-outline-light"  style="background-color:orange" ><?php echo $resultado["curso"] ?></a>
     <?php
-  } // fim while
+    } // fim while
   ?>
 </div>
     <p>
