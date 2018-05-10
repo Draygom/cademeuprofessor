@@ -5,8 +5,30 @@ include("menu.php");
 ?>
 <title>Cadastros</title>
 <div class="container-fluid">
-<p><a href="dashboard.php">Painel de controle</a> | <a href="insert_sala.php">Novo Cadastro de sala</a> | <a href="logout.php">Sair</a></p>
+<p><a href="dashboard.php">Painel de controle</a> | <a href="logout.php">Sair</a></p>
+</div>
+
+<div class="container-fluid">
+  <?php Include("insert_sala.php"); //codigo de cadastro ?>
+  <h1>Novo cadastro de sala</h1>
+  <form name="form" method="post" action="">
+  <input type="hidden" name="new" value="1" />
+  <input type="text" class="form-control my-1" name="sala" placeholder="Sala" required />
+  <input type="text" class="form-control my-1" name="localizacao" placeholder="Localização" required />
+  <input class="btn btn my-1" name="submit" type="submit" value="Enviar" />
+  </form>
+  <?php
+  //exibe a confirmação do cadastro
+  if($status !== ""){
+    echo '<div class="alert alert-success alert-dismissible fade show">' .$status. '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button></div>';
+  }?>
+</div>
+
+<div class="container-fluid">
 <h2>Cadastros</h2>
+
 <table class="table table-dark">
   <thead>
   <tr>
@@ -31,8 +53,8 @@ while($row = mysqli_fetch_assoc($result)) { ?>
 <?php $count++; } ?>
 </tbody>
 </table>
-
 </div>
+
 <?php
 include("bottom.php");
 ?>

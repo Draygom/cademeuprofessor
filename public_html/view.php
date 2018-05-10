@@ -4,9 +4,61 @@ include("auth.php");
 include("menu.php");
 ?>
 <title>Cadastros</title>
+
 <div class="container-fluid">
-<p><a href="dashboard.php">Painel de controle</a> | <a href="insert.php">Novo Cadastro</a> | <a href="logout.php">Sair</a></p>
+<p><a href="dashboard.php">Painel de controle</a> | <a href="logout.php">Sair</a></p>
+</div>
+
+<div class="container-fluid">
+  <?php Include("insert.php"); //codigo de cadastro ?>
+  <h1>Novo cadastro</h1>
+  <form name="form" method="post" action="">
+  <input type="hidden" name="new" value="1" />
+  <input type="text" class="form-control my-1" name="professor" placeholder="Professor" required />
+  <input type="text" class="form-control my-1" name="disciplina" placeholder="Disciplina" required />
+  <input type="text" class="form-control my-1" name="sala" placeholder="Sala" required />
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Curso:</label>
+    </div>
+    <select class="custom-select" name="curso" id="curso">
+      <?php
+      // Colocando os dados retornados pela consulta em um vetor $resultado
+      while ($resultado = mysqli_fetch_array($query)) {
+        ?>
+    <option value="<?php echo $resultado["curso"] ?>"><?php echo $resultado["curso"] ?></option>
+    <?php
+  } // fim while
+  ?>
+    </select>
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">Dia:</label>
+    </div>
+    <select class="custom-select" name="dia">
+    <option value="Segunda">Segunda</option>
+    <option value="Terça">Terça</option>
+    <option value="Quarta">Quarta</option>
+    <option value="Quinta">Quinta</option>
+    <option value="Sexta">Sexta</option>
+    <option value="Sabádo">Sabádo</option>
+  </select>
+  </div>
+  <input class="btn my-1" name="submit" type="submit" value="Enviar" />
+  </form>
+  <?php
+  //exibe a confirmação do cadastro
+  if($status !== ""){
+    echo '<div class="alert alert-success alert-dismissible fade show">' .$status. '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button></div>';
+  }?>
+</div>
+
+<div class="container-fluid">
 <h2>Cadastros</h2>
+
 <table class="table table-dark">
   <thead>
   <tr>
@@ -37,8 +89,8 @@ while($row = mysqli_fetch_assoc($result)) { ?>
 <?php $count++; } ?>
 </tbody>
 </table>
-
 </div>
+
 <?php
 include("bottom.php");
 ?>
