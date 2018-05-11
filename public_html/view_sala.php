@@ -1,12 +1,9 @@
 <?php
 require('db.php');
-include("auth.php");
 include("menu.php");
+include("auth.php");
 ?>
 <title>Cadastros</title>
-<div class="container-fluid">
-<p><a href="dashboard.php">Painel de controle</a> | <a href="logout.php">Sair</a></p>
-</div>
 
 <div class="container-fluid">
   <?php Include("insert_sala.php"); //codigo de cadastro ?>

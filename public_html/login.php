@@ -1,6 +1,7 @@
 <?php
+    include("menu.php");
     require('db.php');
-    session_start();
+    //session_start();
     // se coloca usuario e senha no formulario e envia
     if (isset($_POST['username'])) {
         $username = stripslashes($_REQUEST['username']); // remove barras invertidas
@@ -21,7 +22,7 @@
         }
     } else {
         ?>
-<?php include("menu.php"); ?>
+<?php //include("menu.php"); ?>
 <div class="container-fluid">
 <h1 class="display-4 text-center">Log In</h1>
 <form action="" method="post" name="login">
