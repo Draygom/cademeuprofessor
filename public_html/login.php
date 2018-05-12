@@ -9,12 +9,16 @@
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
         //verifica se o usuario existe
-        $query = "SELECT * FROM `usuarios` WHERE username='$username' and password='".md5($password)."'";
+        $query = "SELECT id, username FROM `usuarios` WHERE username='$username' and password='".md5($password)."'";
         $result = mysqli_query($con, $query) or die(mysql_error());
         $rows = mysqli_num_rows($result);
         if ($rows==1) {
-            $_SESSION['username'] = $username;
-            echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=user.php">';// redireciona pra pagina inicial do usuario
+          $row = mysqli_fetch_array($result);
+          $_SESSION['id'] = $row['id'];
+          $_SESSION['username'] = $row['username'];
+          setcookie('id', $row['id'], time() + (60 * 60 * 24 * 30)); //cria um cookie que dua 30 dias
+          setcookie('username', $row['username'], time() + (60 * 60 * 24 * 30)); //cria um cookie que dua 30 dias
+          echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=user.php">'; // redireciona pra pagina inicial do usuario
         } else { ?>
             <div class="alert alert-warning" role="alert">Login ou senha incorretos <a href="login.php" class="alert-link">Clique aqui para tentar novamente</a>.
             </div>;<?php
