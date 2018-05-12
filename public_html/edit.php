@@ -1,16 +1,15 @@
 <?php
 require('db.php');
-include("auth.php");
 include("menu.php");
+include("auth.php");
 $id=$_REQUEST['id'];
 $query = "SELECT * from qr_tabela where id='".$id."'";
 $result = mysqli_query($con, $query) or die ( mysqli_error());
 $row = mysqli_fetch_assoc($result);
 ?>
+
 <title>Editar</title>
-<div class="container-fluid">
-<p><a href="dashboard.php">Painel de controle</a> | <a href="insert.php">Novo cadastro</a> | <a href="view.php">Visualisar cadastros</a> | <a href="logout.php">Sair</a></p>
-<h1>Editar cadastro</h1>
+
 <?php
 $status = "";
 if(isset($_POST['new']) && $_POST['new']==1)
@@ -27,9 +26,12 @@ $status = "Cadastro atualizado com sucesso.";
 echo '<div class="alert alert-success">'.$status.'</div>';
 }else {
 ?>
+
 <?php $query = mysqli_query($con, "SELECT * FROM qr_tabela GROUP BY curso")
 or die("<br>Erro: ".mysqli_error($con)); ?>
+
 <div class="container-fluid">
+  <h1>Editar cadastro</h1>
 <form name="form" method="post" action="">
 <input type="hidden" name="new" value="1" />
 <input name="id" type="hidden" value="<?php echo $row['id'];?>" />
@@ -68,7 +70,7 @@ or die("<br>Erro: ".mysqli_error($con)); ?>
 </form>
 <?php } ?>
 </div>
-</div>
+
 <?php
 include("bottom.php");
 ?>

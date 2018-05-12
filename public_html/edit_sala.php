@@ -1,16 +1,15 @@
 <?php
 require('db.php'); //incliu o cabeçalho da pagina
-include("auth.php");
 include("menu.php");
+include("auth.php");
 $id=$_REQUEST['id'];
 $query = "SELECT * from sala where id='".$id."'";
 $result = mysqli_query($con, $query) or die ( mysqli_error());
 $row = mysqli_fetch_assoc($result);
 ?>
+
 <title>Editar</title>
-<div class="container-fluid">
-<p><a href="dashboard.php">Painel de controle</a> | <a href="insert_sala.php">Novo cadastro de sala</a> | <a href="view_sala.php">Visualisar cadastros de sala</a> | <a href="logout.php">Sair</a></p>
-<h1>Editar cadastro</h1>
+
 <?php
 $status = "";
 if(isset($_POST['new']) && $_POST['new']==1)
@@ -25,6 +24,7 @@ echo '<div class="alert alert-success">'.$status.'</div>';
 }else {
 ?>
 <div class="container-fluid">
+  <h1>Editar cadastro</h1>
 <form name="form" method="post" action="">
 <input type="hidden" name="new" value="1" />
 <input name="id" type="hidden" value="<?php echo $row['id'];?>" />
@@ -34,7 +34,7 @@ echo '<div class="alert alert-success">'.$status.'</div>';
 </form>
 <?php } ?>
 </div>
-</div>
+
 <?php
 include("bottom.php");
 ?>

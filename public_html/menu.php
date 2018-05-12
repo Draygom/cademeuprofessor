@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="pt-br">
 <head>
   <meta charset="utf-8">
@@ -14,7 +15,7 @@
 </style>
 </head>
 <body style="background-color:lightyellow">
-  <?php session_start(); if (!isset($_SESSION["username"])) { ?>
+  <?php if (!isset($_SESSION["username"])) { ?>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:orange">
     <a href="index.php" class="navbar-brand">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +25,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav nav">
         <li class="nav-item active">
-          <a class="nav-link" href="user.php">Login<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="login.php">Login<span class="sr-only">(current)</span></a>
         </li>
     </div>
   </nav>
@@ -50,7 +51,7 @@
   </nav>
   <?php } ?>
     <form class="form-inline" name="frm_busca" action="busca.php" method="get">
-      <input type="text" id="b" name="b" class="form-control col" placeholder="Professor ou disciplina..." aria-label="pesquisa">
+      <input type="text" id="b" name="b" class="form-control col rounded-0 border-0" placeholder="Professor ou disciplina..." aria-label="pesquisa">
       <div class="input-group-append">
         <button class="btn btn-light" type="submit">Buscar</button>
       </div>

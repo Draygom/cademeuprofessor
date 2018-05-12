@@ -4,7 +4,7 @@ include("menu.php"); //incliu o cabeçalho da pagina
 //tratando os erros
 error_reporting(E_ALL ^ E_NOTICE);
 // coletando o nome do curso
-$busca = $_GET["b"];
+$busca = mysqli_real_escape_string($con, trim($_GET["b"]));
 //Verifica se a condição não está vazia
 if (empty($busca)) {
   echo "<div class='alert alert-danger'>Não foi possivel realizar a busca. Digite o nome de um professor ou disciplina.</div>";

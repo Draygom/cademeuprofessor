@@ -8,6 +8,8 @@ include("auth.php"); //include auth.php file on all secure pages
 
 <p>Está é uma area restrita.</p>
 
+<p><a href="dashboard.php">Painel de controle</a><p>
+
 </div>
 <?php
 include("bottom.php");
