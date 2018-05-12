@@ -41,7 +41,7 @@ include("auth.php");
     <option value="Sabádo">Sabádo</option>
   </select>
   </div>
-  <input class="btn my-1" name="submit" type="submit" value="Enviar" />
+  <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" />
   </form>
   <?php
   //exibe a confirmação do cadastro

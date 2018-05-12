@@ -12,7 +12,7 @@ include("auth.php");
   <input type="hidden" name="new" value="1" />
   <input type="text" class="form-control my-1" name="sala" placeholder="Sala" required />
   <input type="text" class="form-control my-1" name="localizacao" placeholder="Localização" required />
-  <input class="btn btn my-1" name="submit" type="submit" value="Enviar" />
+  <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" />
   </form>
   <?php
   //exibe a confirmação do cadastro
@@ -37,15 +37,15 @@ include("auth.php");
 <tbody>
 <?php
 $count=1;
-$sel_query="Select * from sala ORDER BY id desc;";
+$sel_query="Select * from sala ORDER BY id_sala desc;";
 $result = mysqli_query($con,$sel_query);
 while($row = mysqli_fetch_assoc($result)) { ?>
   <tr>
      <td><?php echo $count; ?></td>
      <td><?php echo $row["sala"]?></td>
      <td><?php echo $row["localizacao"]?></td>
-     <td><a href="edit_sala.php?id=<?php echo $row["id"]; ?>">Editar</a></td>
-     <td><a href="delete_sala.php?id=<?php echo $row["id"]; ?>">Excluir</a></td>
+     <td><a href="edit_sala.php?id_sala=<?php echo $row["id_sala"]; ?>">Editar</a></td>
+     <td><a href="delete_sala.php?id_sala=<?php echo $row["id_sala"]; ?>">Excluir</a></td>
   </tr>
 <?php $count++; } ?>
 </tbody>

@@ -22,7 +22,7 @@
     } else {
         ?>
 <?php //include("menu.php"); ?>
-<div class="card mb-3 mx-auto center border-warning rounded-0" style="width: 25rem;">
+<div class="card mb-3 mx-auto border-warning rounded-0" style="width: 18rem;">
 <h1 class="display-5 text-center">Log In</h1>
 <div class="container-fluid">
 <form action="" method="post" name="login">

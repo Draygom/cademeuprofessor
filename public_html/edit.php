@@ -24,6 +24,7 @@ $update="update qr_tabela set professor='".$professor."', disciplina='".$discipl
 mysqli_query($con, $update) or die(mysqli_error($con));
 $status = "Cadastro atualizado com sucesso.";
 echo '<div class="alert alert-success">'.$status.'</div>';
+echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=view.php">';
 }else {
 ?>
 
@@ -66,8 +67,9 @@ or die("<br>Erro: ".mysqli_error($con)); ?>
   <option value="Sabádo">Sabádo</option>
 </select>
 </div>
-<input name="submit" class="btn btn-primary my-1" type="submit" value="Enviar" />
+<input name="submit" class="btn btn-warning my-1" type="submit" value="Enviar" />
 </form>
+<button type="button" class="btn btn-warning" onClick="history.go(-1)">Voltar</button>
 <?php } ?>
 </div>
 
