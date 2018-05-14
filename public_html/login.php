@@ -1,7 +1,8 @@
 <?php
     include("menu.php");
     require('db.php');
-    //session_start();
+    //verifica se o usuario ja nao está logado.
+    if (!isset($_SESSION['id'])) {
     // se coloca usuario e senha no formulario e envia
     if (isset($_POST['username'])) {
         $username = stripslashes($_REQUEST['username']); // remove barras invertidas
@@ -23,9 +24,8 @@
             <div class="alert alert-warning" role="alert">Login ou senha incorretos <a href="login.php" class="alert-link">Clique aqui para tentar novamente</a>.
             </div>;<?php
         }
-    } else {
-        ?>
-<?php //include("menu.php"); ?>
+    }
+  } ?>
 <div class="card mb-3 mx-auto border-warning rounded-0" style="width: 18rem;">
 <h1 class="display-5 text-center">Log In</h1>
 <div class="container-fluid">
@@ -38,7 +38,4 @@
 </div>
 <?php /* <p>Ainda não possui uma conta? <a href='registration.php'>Registre-se aqui!</a></p> */ ?>
 </div>
-<?php
-    }
-    include("bottom.php");
-    ?>
+<?php include("bottom.php"); ?>
