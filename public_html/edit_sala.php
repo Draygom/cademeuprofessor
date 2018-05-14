@@ -29,10 +29,24 @@ echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=view_sala.php">';
 <form name="form" method="post" action="">
 <input type="hidden" name="new" value="1" />
 <input name="id_sala" type="hidden" value="<?php echo $row['id_sala'];?>" />
-<input type="text" class="form-control my-1" name="sala" placeholder="Sala" required value="<?php echo $row['sala'];?>" />
-<input type="text" class="form-control my-1" name="localizacao" placeholder="Localização" required value="<?php echo $row['localizacao'];?>" />
+
+<div class="form-group row">
+  <label for="Sala" class="col-xl-2 col-form-label"><b>Sala:</b> <?php echo $row['sala'];?></label>
+  <div class="col">
+    <input type="text" class="form-control my-1" name="sala" placeholder="Sala" required />
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="Localização" class="col-xl-2 col-form-label"><b>Localização:</b> <?php echo $row['localizacao'];?></label>
+  <div class="col">
+    <input type="text" class="form-control my-1" name="localizacao" placeholder="Localização" required />
+  </div>
+</div>
+
 <input name="submit" class="btn btn-warning my-1" type="submit" value="Enviar" />
 </form>
+
 <button type="button" class="btn btn-warning" onClick="history.go(-1)">Voltar</button>
 <?php } ?>
 </div>

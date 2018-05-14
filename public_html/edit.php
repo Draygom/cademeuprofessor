@@ -36,29 +36,49 @@ or die("<br>Erro: ".mysqli_error($con)); ?>
 <form name="form" method="post" action="">
 <input type="hidden" name="new" value="1" />
 <input name="id" type="hidden" value="<?php echo $row['id'];?>" />
-<input type="text" class="form-control my-1" name="professor" placeholder="Professor" required value="<?php echo $row['professor'];?>" />
-<input type="text" class="form-control my-1" name="disciplina" placeholder="Disciplina" required value="<?php echo $row['disciplina'];?>" />
-<input type="text" class="form-control my-1" name="sala" placeholder="Sala" required value="<?php echo $row['sala'];?>" />
-<div class="input-group mb-1">
-  <div class="input-group-prepend">
-  <label class="input-group-text" for="inputGroupSelect01">Curso:</label>
+
+<div class="form-group row">
+  <label for="Professor" class="col-xl-2 col-form-label"><b>Professor:</b> <?php echo $row['professor'];?></label>
+  <div class="col">
+    <input type="text" class="form-control my-1" name="professor" placeholder="Professor" required />
   </div>
-  <select class="custom-select" name="curso" required value="<?php echo $row['curso'];?>">
+</div>
+
+<div class="form-group row">
+  <label for="Disciplina" class="col-xl-2 col-form-label"><b>Disciplina:</b> <?php echo $row['disciplina'];?></label>
+  <div class="col">
+    <input type="text" class="form-control my-1" name="disciplina" placeholder="Disciplina" required />
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="Sala" class="col-xl-2 col-form-label"><b>Sala:</b> <?php echo $row['sala'];?></label>
+  <div class="col">
+    <input type="text" class="form-control my-1" name="sala" placeholder="Sala" required />
+  </div>
+</div>
+
+<div class="input-group mb-2">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="Curso"><?php echo $row['curso'];?>:</label>
+  </div>
+  <select class="custom-select" name="curso" required >
     <?php
     // Colocando os dados retornados pela consulta em um vetor $resultado
     while ($resultado = mysqli_fetch_array($query)) {
-      ?>
-  <option value="<?php echo $resultado["curso"] ?>"><?php echo $resultado["curso"] ?></option>
-  <?php
+    ?>
+    <option value="<?php echo $resultado["curso"] ?>"><?php echo $resultado["curso"] ?></option>
+    <?php
   } // fim while
   ?>
   </select>
 </div>
+
 <div class="input-group">
   <div class="input-group-prepend">
-  <label class="input-group-text" for="inputGroupSelect01">Dia:</label>
+  <label class="input-group-text" for="Sala"><?php echo $row['dia'];?>:</label>
   </div>
-  <select class="custom-select" name="dia" required value="<?php echo $row['dia'];?>">
+  <select class="custom-select" name="dia" required >
   <option value="Segunda">Segunda</option>
   <option value="Terça">Terça</option>
   <option value="Quarta">Quarta</option>
