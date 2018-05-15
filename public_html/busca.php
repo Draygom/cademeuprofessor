@@ -1,6 +1,9 @@
 <?php
 require("db.php"); //conecta com o banco de dados
 include("menu.php"); //incliu o cabeçalho da pagina
+?>
+<title>Busca</title>
+<?php
 //tratando os erros
 error_reporting(E_ALL ^ E_NOTICE);
 // coletando o nome do curso
