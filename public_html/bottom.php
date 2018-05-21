@@ -1,6 +1,6 @@
 <p>
   <!-- Barra de navegação -->
-  <nav class="navbar navbar-expand-xl navbar-dark" style="background-color:orange">
+  <nav class="navbar navbar-expand-xl navbar-dark border" style="background-color:white">
     <!-- logo -->
     <img src="imagens/logo_pitagoras.png" class="rounded" alt="Pitágoras" </img>
     <!-- Links -->
@@ -11,4 +11,4 @@
     </ul>
   </nav>
 </body>
-</html>
+</html 
