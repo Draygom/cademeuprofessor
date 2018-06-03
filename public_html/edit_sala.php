@@ -1,5 +1,5 @@
 <?php
-require('db.php'); //incliu o cabeçalho da pagina
+require('dbcon.php');
 include("menu.php");
 include("auth.php");
 $id_sala=$_REQUEST['id_sala'];
@@ -21,34 +21,31 @@ $update="update sala set sala='".$sala."', localizacao='".$localizacao."' where 
 mysqli_query($con, $update) or die(mysqli_error($con));
 $status = "Cadastro atualizado com sucesso.";
 echo '<div class="alert alert-success">'.$status.'</div>';
-echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=view_sala.php">';
+echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=regist_sala.php">';
 }else {
 ?>
-<div class="container-fluid justify-content-end">
-  <h1>Editar cadastro</h1>
-<form name="form" method="post" action="">
-<input type="hidden" name="new" value="1" />
-<input name="id_sala" type="hidden" value="<?php echo $row['id_sala'];?>" />
-
-<div class="form-group row">
-  <label for="Sala" class="col-xl-2 col-form-label"><b>Sala:</b> <?php echo $row['sala'];?></label>
-  <div class="col">
-    <input type="text" class="form-control my-1" name="sala" placeholder="Sala" required />
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+      <h1>Editar sala</h1>
+      <form name="form" method="post" action="">
+        <div class="form-group row">
+          <input type="hidden" name="new" value="1" />
+          <input name="id_sala" type="hidden" value="<?php echo $row['id_sala'];?>" />
+          <div class="col-sm">
+            <label for="Sala" class="col-form-label"><b><?php echo $row['nome_sala'];?></b></label>
+            <input type="text" class="form-control my-1" name="nome_sala" placeholder="Sala" required />
+          </div>
+          <div class="col-sm">
+            <label for="Localização" class="col-form-label"><b><?php echo $row['localizacao'];?></b></label>
+            <input type="text" class="form-control my-1" name="localizacao" placeholder="Localização" required />
+          </div>
+        </div>
+        <input name="submit" class="btn btn-warning my-1" type="submit" value="Enviar" /> <button type="button" class="btn btn-warning" onClick="history.go(-1)">Voltar</button>
+      </form>
+      <?php } ?>
+    </div>
   </div>
-</div>
-
-<div class="form-group row">
-  <label for="Localização" class="col-xl-2 col-form-label"><b>Localização:</b> <?php echo $row['localizacao'];?></label>
-  <div class="col">
-    <input type="text" class="form-control my-1" name="localizacao" placeholder="Localização" required />
-  </div>
-</div>
-
-<input name="submit" class="btn btn-warning my-1" type="submit" value="Enviar" />
-</form>
-
-<button type="button" class="btn btn-warning" onClick="history.go(-1)">Voltar</button>
-<?php } ?>
 </div>
 
 <?php

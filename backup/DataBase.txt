@@ -1,0 +1,66 @@
+CREATE TABLE aula (
+  id_aula INTEGER(11) NOT NULL AUTO_INCREMENT,
+  sala_id_sala INTEGER(11) NULL,
+  disciplina_id_disc INTEGER(11) NULL,
+  curso_id_curso INTEGER(11) NULL,
+  professor_id_prof INTEGER(11) NULL,
+  PRIMARY KEY(id_aula),
+  INDEX aula_FKIndex1(professor_id_prof),
+  INDEX aula_FKIndex2(curso_id_curso),
+  INDEX aula_FKIndex3(disciplina_id_disc),
+  INDEX aula_FKIndex4(sala_id_sala)
+)
+ENGINE=InnoDB;
+
+CREATE TABLE curso (
+  id_curso INTEGER(11) NOT NULL AUTO_INCREMENT,
+  nome_curso VARCHAR(50) NULL,
+  PRIMARY KEY(id_curso)
+)
+ENGINE=InnoDB;
+
+CREATE TABLE disciplina (
+  id_disc INTEGER(11) NOT NULL AUTO_INCREMENT,
+  curso_id_curso INTEGER(11) NULL,
+  nome_disc VARCHAR(50) NULL,
+  PRIMARY KEY(id_disc),
+  INDEX disciplina_FKIndex1(curso_id_curso)
+)
+ENGINE=InnoDB;
+
+CREATE TABLE professor (
+  id_prof INTEGER(11) NOT NULL AUTO_INCREMENT,
+  nome VARCHAR(50) NULL,
+  PRIMARY KEY(id_prof)
+)
+ENGINE=InnoDB;
+
+CREATE TABLE sala (
+  id_sala INTEGER(11) NOT NULL AUTO_INCREMENT,
+  nome_sala VARCHAR(50) NULL,
+  localizacao VARCHAR(50) NULL,
+  PRIMARY KEY(id_sala)
+)
+ENGINE=InnoDB;
+
+CREATE TABLE tipo_usuario (
+  id_tipo_usuario INTEGER(11) NOT NULL AUTO_INCREMENT,
+  nivel INTEGER(11) NULL,
+  nome_tipo VARCHAR(40) NULL,
+  PRIMARY KEY(id_tipo_usuario)
+)
+ENGINE=InnoDB;
+
+CREATE TABLE usuarios (
+  id_usuarios INTEGER(11) NOT NULL AUTO_INCREMENT,
+  tipo_usuario_id_tipo_usuario INTEGER(11) NULL,
+  nome VARCHAR(40) NULL,
+  apelido VARCHAR(40) NULL,
+  password_2 VARCHAR(40) NULL,
+  email VARCHAR(40) NULL,
+  data_cadastro DATETIME NULL,
+  PRIMARY KEY(id_usuarios),
+  INDEX usuarios_FKIndex1(tipo_usuario_id_tipo_usuario)
+)
+ENGINE=InnoDB;
+
