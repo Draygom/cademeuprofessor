@@ -15,9 +15,9 @@ $status = "";
 if(isset($_POST['new']) && $_POST['new']==1)
 {
 $id_sala=$_REQUEST['id_sala'];
-$sala =$_REQUEST['sala'];
+$nome_sala =$_REQUEST['nome_sala'];
 $localizacao = $_REQUEST['localizacao'];
-$update="update sala set sala='".$sala."', localizacao='".$localizacao."' where id_sala='".$id_sala."'";
+$update="update sala set nome_sala='".$nome_sala."', localizacao='".$localizacao."' where id_sala='".$id_sala."'";
 mysqli_query($con, $update) or die(mysqli_error($con));
 $status = "Cadastro atualizado com sucesso.";
 echo '<div class="alert alert-success">'.$status.'</div>';

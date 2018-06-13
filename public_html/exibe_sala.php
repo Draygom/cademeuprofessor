@@ -1,4 +1,5 @@
 <?php
+require("dbcon.php");
 require("db.php");
 include("menu.php");
 ?>
@@ -24,7 +25,7 @@ include("menu.php");
 	       $query = mysqli_query($con, "SELECT * FROM qr_tabela WHERE professor = '$professor' AND dia = '$hoje' GROUP BY professor")
 	        or die("<br>Erro: ".mysqli_error($con));
         }
-        
+
      if ($disciplina <> ""){
 	         // executando a consulta no banco de dados:
 	          $query = mysqli_query($con, "SELECT * FROM qr_tabela WHERE disciplina = '$disciplina' AND dia = '$hoje' GROUP BY professor")

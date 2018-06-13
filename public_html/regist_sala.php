@@ -18,7 +18,7 @@ include("auth.php"); //incluir o arquivo de autenticação em todas a paginas pr
             <input type="text" class="form-control my-1" name="localizacao" placeholder="Localização" required />
           </div>
         </div>
-        <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" />
+        <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" /> <button type="button" class="btn btn-warning" onClick="history.go(-1)">Voltar</button>
       </form>
       <?php
       //exibe a confirmação do cadastro

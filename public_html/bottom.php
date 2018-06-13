@@ -13,6 +13,9 @@
         <li class="nav-item">
           <a class="nav-link" href="sobre.php">Sobre</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sugestoes.php">Envie uma sugestão</a>
+        </li>
       </ul>
     </div>
   </nav>

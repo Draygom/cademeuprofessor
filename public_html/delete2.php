@@ -24,4 +24,10 @@ if ($id_sala=$_REQUEST['id_sala']) {
   $result = mysqli_query($con, $query) or die ( mysqli_error());
   header("Location: regist_sala.php");
 }
+
+if ($id_aula=$_REQUEST['id_aula']) {
+  $query = "DELETE FROM aula WHERE id_aula=$id_aula";
+  $result = mysqli_query($con, $query) or die ( mysqli_error());
+  header("Location: quadros.php");
+}
 ?>

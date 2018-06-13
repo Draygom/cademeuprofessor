@@ -20,7 +20,7 @@ $query = mysqli_query($con, "SELECT * FROM curso")
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="regist_turma.php">Cadastrar/Editar</a>
+          <a class="nav-item nav-link" href="regist_quadro.php?c=<?php echo $curso ?>">Cadastrar/Editar</a>
         </div>
       </div>
     </nav>

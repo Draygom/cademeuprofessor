@@ -18,7 +18,7 @@ $query = mysqli_query($con, "SELECT * FROM curso")
       // Colocando os dados retornados pela consulta em um vetor $resultado
       while ($resultado = mysqli_fetch_array($query)) {
           ?>
-      <a href="quadro_horario.php?c=<?php echo $resultado["nome_curso"] ?>" class="btn btn-secondary rounded-0 col-6 col-sm-3"><?php echo $resultado["nome_curso"] ?></a>
+      <a href="quadro_aula.php?c=<?php echo $resultado["nome_curso"] ?>" class="btn btn-secondary rounded-0 col-6 col-sm-3"><?php echo $resultado["nome_curso"] ?></a>
     <?php } ?>
     </div>
   </div>

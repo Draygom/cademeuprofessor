@@ -14,13 +14,13 @@ or die("<br>Erro: ".mysqli_error($con));
   <div class="card">
     <div class="card-body">
       <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <h5 class="text-white h4">Cursos</h5>
+        <h5 class="text-white">Cursos</h5>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" href="regist_cursos.php">Cadastrar/Editar</a>
+            <a class="nav-item nav-link" href="regist_curso.php">Cadastrar/Editar</a>
           </div>
         </div>
       </nav>

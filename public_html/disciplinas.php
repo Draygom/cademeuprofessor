@@ -14,7 +14,7 @@ or die("<br>Erro: ".mysqli_error($con));
   <div class="card">
     <div class="card-body">
       <nav class="navbar navbar-expand-sm navbar-dark bg-info">
-        <h5 class="text-white h4">Disciplinas</h5>
+        <h5 class="text-white">Disciplinas</h5>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
