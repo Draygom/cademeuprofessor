@@ -1,5 +1,5 @@
 <?php
-require("db.php");
+require("dbcon.php");
 include("menu.php");
 ?>
 <title>Professores</title>
@@ -10,7 +10,10 @@ include("menu.php");
      // coletando o nome do curso
      $curso = $_GET["c"];
      // executando a consulta no banco de dados:
-     $query = mysqli_query($con, "SELECT * FROM qr_tabela WHERE curso = '$curso' GROUP BY professor")
+     $query = mysqli_query($con, "SELECT * FROM aula
+       LEFT JOIN professor ON aula.professor_id_prof = professor.id_prof
+       LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
+       WHERE nome_curso = '$curso' GROUP BY nome")
      or die("<br>Erro: ".mysqli_error($con));
      ?>
      <!-- mostra o nome do curso -->
@@ -21,7 +24,7 @@ include("menu.php");
         while ($resultado = mysqli_fetch_array($query)) {
         ?>
         <div class="btn-group-vertical col">
-          <a href="exibe_sala.php?p=<?php echo $resultado["professor"]?>" class="btn btn-outline-light"  style="background-color:orange"><?php echo $resultado["professor"]?></a>
+          <a href="exibe_sala.php?p=<?php echo $resultado["nome"]?>" class="btn btn-outline-light rounded-0"  style="background-color:#ee7f22"><?php echo $resultado["nome"]?></a>
         </div>
           <?php
 	       } // fim while

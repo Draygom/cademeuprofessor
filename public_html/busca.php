@@ -1,5 +1,5 @@
 <?php
-require("db.php"); //conecta com o banco de dados
+require("dbcon.php"); //conecta com o banco de dados
 include("menu.php"); //incliu o cabeçalho da pagina
 ?>
 <title>Busca</title>
@@ -13,9 +13,11 @@ if (empty($busca)) {
   echo "<div class='alert alert-danger'>Não foi possivel realizar a busca. Digite o nome de um professor ou disciplina.</div>";
 }else{
 // executando a consulta no banco de dados:
-$professor = mysqli_query($con, "SELECT * FROM qr_tabela WHERE professor LIKE '%$busca%' GROUP BY professor")
+$professor = mysqli_query($con, "SELECT nome FROM professor WHERE nome LIKE '%$busca%' GROUP BY nome")
 or die("<br>Erro: ".mysqli_error($con));
-$disciplina = mysqli_query($con, "SELECT * FROM qr_tabela WHERE disciplina LIKE '%$busca%' GROUP BY disciplina")
+$disciplina = mysqli_query($con, "SELECT nome_disc, nome_curso FROM disciplina
+  LEFT JOIN curso ON disciplina.curso_id_curso = curso.id_curso
+  WHERE nome_disc LIKE '%$busca%' ")
 or die("<br>Erro: ".mysqli_error($con));
 
     //cabeçalho
@@ -25,14 +27,14 @@ or die("<br>Erro: ".mysqli_error($con));
     while ($resultado = mysqli_fetch_array($professor)) {
         ?>
   <div class="btn-group-vertical col">
-    <a href="exibe_sala.php?p=<?php echo $resultado["professor"]?>" class="btn btn-outline-light"  style="background-color:orange"><?php echo $resultado["professor"]?></a>
+    <a href="exibe_sala.php?p=<?php echo $resultado["nome"]?>" class="btn btn-outline-light"  style="background-color:orange"><?php echo $resultado["nome"]?></a>
   </div>
   <?php
     } // fim while
     while ($resultado = mysqli_fetch_array($disciplina)) {
         ?>
   <div class="btn-group-vertical col">
-    <a href="exibe_sala.php?d=<?php echo $resultado["disciplina"]?>" class="btn btn-outline-light"  style="background-color:orange"><?php echo $resultado["disciplina"]?></a>
+    <a href="exibe_sala.php?d=<?php echo $resultado["nome_disc"]?>" class="btn btn-outline-light"  style="background-color:orange"><?php echo $resultado["nome_disc"]?> - <?php echo $resultado["nome_curso"]?></a>
   </div>
 <?php
     } // fim while

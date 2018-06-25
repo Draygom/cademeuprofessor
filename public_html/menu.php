@@ -1,9 +1,9 @@
 <?php
 session_start();
-if (!isset($_SESSION['id'])) {
-  if (isset($_COOKIE['id']) && isset($_COOKIE['username'])) {
-    $_SESSION['id'] = $_COOKIE['id'];
-    $_SESSION['username'] = $_COOKIE['username'];
+if (!isset($_SESSION['id_usuarios'])) {
+  if (isset($_COOKIE['id_usuarios']) && isset($_COOKIE['apelido'])) {
+    $_SESSION['id_usuarios'] = $_COOKIE['id_usuarios'];
+    $_SESSION['apelido'] = $_COOKIE['apelido'];
   }
 }
 ?>
@@ -17,14 +17,14 @@ if (!isset($_SESSION['id'])) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <style type="text/css">
   .form-control:focus {
-        border-color: #ffb800;
+        border-color: #ee7f22;
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.07) inset, 0px 0px 8px rgba(254, 252, 96, 0.5);
     }
 </style>
 </head>
 <body style="background-color:lightyellow">
-  <?php if (!isset($_SESSION["username"])) { ?>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:orange">
+  <?php if (!isset($_SESSION["apelido"])) { ?>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ee7f22">
     <a href="index.php" class="navbar-brand">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,7 +38,7 @@ if (!isset($_SESSION['id'])) {
     </div>
   </nav>
   <?php }else{ ?>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:orange">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ee7f22">
     <a href="index.php" class="navbar-brand">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@ if (!isset($_SESSION['id'])) {
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="user.php"><?php echo $_SESSION["username"]; ?><span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="user.php"><?php echo $_SESSION["apelido"]; ?><span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="dashboard.php">Painel de controle<span class="sr-only">(current)</span></a>

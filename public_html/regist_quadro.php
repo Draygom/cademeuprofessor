@@ -39,7 +39,7 @@ $curso = $_GET["c"];
               $dia = "quarta"; include("regist_quadro_form.php");
               $dia = "quinta"; include("regist_quadro_form.php");
               $dia = "sexta"; include("regist_quadro_form.php");
-              $dia = "sábado"; include("regist_quadro_form.php");
+              $dia = "sabado"; include("regist_quadro_form.php");
               ?>
             </div>
 
@@ -69,6 +69,8 @@ $curso = $_GET["c"];
             <th>Sala</th>
             <th>Disciplina</th>
             <th>Professor</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -92,7 +94,8 @@ $curso = $_GET["c"];
               <td><?php echo $row["nome_sala"]?></td>
               <td><?php echo $row["nome_disc"]?></td>
               <td><?php echo $row["nome"]?></td>
-              <td><a href="delete2.php?id_aula=<?php echo $row["id_aula"]; ?>">Excluir</a></td>
+              <td><a href="edit_aula.php?id_aula=<?php echo $row["id_aula"]; ?>">Editar</a></td>
+              <td><a href="delete.php?id_aula=<?php echo $row["id_aula"]; ?>">Excluir</a></td>
             </tr>
             <?php
             $count++;

@@ -51,14 +51,14 @@ if(isset($_POST['new']) && $_POST['new']==1) {
     $sex_query="INSERT INTO aula (turma_id_turma, sala_id_sala, disciplina_id_disc, curso_id_curso, professor_id_prof, dia) VALUES('$id_turma', '$id_sala_sexta', '$id_disc_sexta', '$id_curso_sexta', '$id_prof_sexta', '$dia_sexta')";
     mysqli_query($con, $sex_query) or die("<br> Erro: ".mysqli_error($con));
   }
-  if(isset($_POST['id_disc_sábado']) && $_POST['id_disc_sábado']!=="NE") {
-    $id_curso_sábado = $_REQUEST['id_curso_sábado'];
+  if(isset($_POST['id_disc_sabado']) && $_POST['id_disc_sabado']!=="NE") {
+    $id_curso_sabado = $_REQUEST['id_curso_sabado'];
     $id_turma = $_REQUEST['id_turma'];
-    $dia_sábado = $_REQUEST['dia_sábado'];
-    $id_sala_sábado = $_REQUEST['id_sala_sábado'];
-    $id_disc_sábado = $_REQUEST['id_disc_sábado'];
-    $id_prof_sábado = $_REQUEST['id_prof_sábado'];
-    $sab_query="INSERT INTO aula (turma_id_turma, sala_id_sala, disciplina_id_disc, curso_id_curso, professor_id_prof, dia) VALUES('$id_turma', '$id_sala_sábado', '$id_disc_sábado', '$id_curso_sábado', '$id_prof_sábado', '$dia_sábado')";
+    $dia_sabado = $_REQUEST['dia_sabado'];
+    $id_sala_sabado = $_REQUEST['id_sala_sabado'];
+    $id_disc_sabado = $_REQUEST['id_disc_sabado'];
+    $id_prof_sabado = $_REQUEST['id_prof_sabado'];
+    $sab_query="INSERT INTO aula (turma_id_turma, sala_id_sala, disciplina_id_disc, curso_id_curso, professor_id_prof, dia) VALUES('$id_turma', '$id_sala_sabado', '$id_disc_sabado', '$id_curso_sabado', '$id_prof_sabado', '$dia_sabado')";
     mysqli_query($con, $sab_query) or die("<br> Erro: ".mysqli_error($con));
   }
 $status = "Novo cadastro inserido com sucesso.";

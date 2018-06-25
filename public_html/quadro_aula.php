@@ -70,7 +70,7 @@ $query = mysqli_query($con, "SELECT * FROM curso")
                or die("<br>Erro: ".mysqli_error($con));
                $result = mysqli_fetch_array($query);
                if ($result <> "") {
-                 ?> <a href="google.com/maps?q=<?php echo $result['localizacao']?>"><?php echo $result['nome_sala'];?></a>
+                 ?> <a href="https://www.google.com/maps?q=<?php echo $result['localizacao']?>" target="_blank"><?php echo $result['nome_sala'];?></a>
               <?php } else echo "N/E"?>
             </td>
             <td>
@@ -82,7 +82,7 @@ $query = mysqli_query($con, "SELECT * FROM curso")
                or die("<br>Erro: ".mysqli_error($con));
                $result = mysqli_fetch_array($query);
                if ($result <> "") {
-                 ?> <a href="google.com/maps?q=<?php echo $result['localizacao']?>"><?php echo $result['nome_sala'];?></a>
+                 ?> <a href="https://www.google.com/maps?q=<?php echo $result['localizacao']?>" target="_blank"><?php echo $result['nome_sala'];?></a>
               <?php } else echo "N/E"?>
             </td>
             <td>
@@ -94,7 +94,7 @@ $query = mysqli_query($con, "SELECT * FROM curso")
                or die("<br>Erro: ".mysqli_error($con));
                $result = mysqli_fetch_array($query);
                if ($result <> "") {
-                 ?> <a href="google.com/maps?q=<?php echo $result['localizacao']?>"><?php echo $result['nome_sala'];?></a>
+                 ?> <a href="https://www.google.com/maps?q=<?php echo $result['localizacao']?>" target="_blank"><?php echo $result['nome_sala'];?></a>
               <?php } else echo "N/E"?>
              </td>
             <td><?php $query = mysqli_query($con, "SELECT nome_sala, localizacao FROM aula
@@ -105,7 +105,7 @@ $query = mysqli_query($con, "SELECT * FROM curso")
              or die("<br>Erro: ".mysqli_error($con));
              $result = mysqli_fetch_array($query);
              if ($result <> "") {
-               ?> <a href="google.com/maps?q=<?php echo $result['localizacao']?>"><?php echo $result['nome_sala'];?></a>
+               ?> <a href="https://www.google.com/maps?q=<?php echo $result['localizacao']?>" target="_blank"><?php echo $result['nome_sala'];?></a>
             <?php } else echo "N/E"?>
            </td>
             <td><?php $query = mysqli_query($con, "SELECT nome_sala, localizacao FROM aula
@@ -116,18 +116,18 @@ $query = mysqli_query($con, "SELECT * FROM curso")
              or die("<br>Erro: ".mysqli_error($con));
              $result = mysqli_fetch_array($query);
              if ($result <> "") {
-               ?> <a href="google.com/maps?q=<?php echo $result['localizacao']?>"><?php echo $result['nome_sala'];?></a>
+               ?> <a href="https://www.google.com/maps?q=<?php echo $result['localizacao']?>" target="_blank"><?php echo $result['nome_sala'];?></a>
             <?php } else echo "N/E"?>
            </td>
            <td><?php $query = mysqli_query($con, "SELECT nome_sala, localizacao FROM aula
              LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
              LEFT JOIN sala ON aula.sala_id_sala = sala.id_sala
              LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
-             WHERE id_turma = '$count' AND nome_curso = '$curso' AND dia = 'sábado'")
+             WHERE id_turma = '$count' AND nome_curso = '$curso' AND dia = 'sabado'")
             or die("<br>Erro: ".mysqli_error($con));
             $result = mysqli_fetch_array($query);
             if ($result <> "") {
-              ?> <a href="google.com/maps?q=<?php echo $result['localizacao']?>"><?php echo $result['nome_sala'];?></a>
+              ?> <a href="https://www.google.com/maps?q=<?php echo $result['localizacao']?>" target="_blank"><?php echo $result['nome_sala'];?></a>
            <?php } else echo "N/E"?>
           </td>
           </tr>
@@ -209,7 +209,7 @@ $query = mysqli_query($con, "SELECT * FROM curso")
                     LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
                     LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
                     LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
-                    WHERE id_turma = '$count' AND nome_curso = '$curso' AND dia = 'sábado'")
+                    WHERE id_turma = '$count' AND nome_curso = '$curso' AND dia = 'sabado'")
                     or die("<br>Erro: ".mysqli_error($con));
                     $result = mysqli_fetch_array($query);
                     if ($result <> "") {
@@ -285,7 +285,7 @@ $query = mysqli_query($con, "SELECT * FROM curso")
                 LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
                 LEFT JOIN professor ON aula.professor_id_prof = professor.id_prof
                 LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
-                WHERE id_turma = '$count' AND nome_curso = '$curso' AND dia = 'sábado'")
+                WHERE id_turma = '$count' AND nome_curso = '$curso' AND dia = 'sabado'")
                 or die("<br>Erro: ".mysqli_error($con));
                 $result = mysqli_fetch_array($query);
                 if ($result <> "") {

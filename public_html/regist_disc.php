@@ -64,7 +64,7 @@ include("auth.php"); //incluir o arquivo de autenticação em todas a paginas pr
               <td><?php echo $row["nome_disc"]?></td>
               <td><?php echo $row["nome_curso"]?></td>
               <td><a href="edit_disc.php?id_disc=<?php echo $row["id_disc"]; ?>">Editar</a></td>
-              <td><a href="delete2.php?id_disc=<?php echo $row["id_disc"]; ?>">Excluir</a></td>
+              <td><a href="delete.php?id_disc=<?php echo $row["id_disc"]; ?>">Excluir</a></td>
             </tr>
             <?php
             $count++;

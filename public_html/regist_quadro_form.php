@@ -14,21 +14,6 @@
   <input type="hidden" name="id_curso_<?php echo $dia ?>" value="<?php echo $resultado["id_curso"] ?>" />
 <?php } ?>
 
-  <select class="custom-select my-1" required name="id_sala_<?php echo $dia ?>" id="sala">
-    <option >-- Selecione a sala --</option>
-    <option value="NE">-- NE --</option>
-    <?php
-    $query = mysqli_query($con, "SELECT * FROM sala")
-    or die("<br>Erro: ".mysqli_error($con));
-    // Colocando os dados retornados pela consulta em um vetor $resultado
-    while ($resultado = mysqli_fetch_array($query)) {
-      ?>
-  <option value="<?php echo $resultado["id_sala"] ?>"><?php echo $resultado["nome_sala"] ?></option>
-  <?php
-} // fim while
-?>
-  </select>
-
   <select class="custom-select my-1" required name="id_disc_<?php echo $dia ?>" id="disciplina">
     <option >-- Selecione a disciplina --</option>
     <option value="NE">-- NE --</option>
@@ -58,4 +43,20 @@
 } // fim while
 ?>
   </select>
+
+  <select class="custom-select my-1" required name="id_sala_<?php echo $dia ?>" id="sala">
+    <option >-- Selecione a sala --</option>
+    <option value="NE">-- NE --</option>
+    <?php
+    $query = mysqli_query($con, "SELECT * FROM sala")
+    or die("<br>Erro: ".mysqli_error($con));
+    // Colocando os dados retornados pela consulta em um vetor $resultado
+    while ($resultado = mysqli_fetch_array($query)) {
+      ?>
+  <option value="<?php echo $resultado["id_sala"] ?>"><?php echo $resultado["nome_sala"] ?></option>
+  <?php
+} // fim while
+?>
+  </select>
+  
 </div>

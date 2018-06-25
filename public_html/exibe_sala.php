@@ -1,6 +1,5 @@
 <?php
 require("dbcon.php");
-require("db.php");
 include("menu.php");
 ?>
     <title>Sala</title>
@@ -12,7 +11,7 @@ include("menu.php");
      // recebendo o nome da disciplina
      $disciplina = $_GET["d"];
      // Array com os dias da semana
-     $diasemana = array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado');
+     $diasemana = array('domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sabado');
      // Dia atual:
      $data = date('Y-m-d');
      // Variavel que recebe o dia da semana (0 = Domingo, 1 = Segunda ...)
@@ -22,13 +21,25 @@ include("menu.php");
 
      if ($professor <> ""){
 	      // executando a consulta no banco de dados:
-	       $query = mysqli_query($con, "SELECT * FROM qr_tabela WHERE professor = '$professor' AND dia = '$hoje' GROUP BY professor")
+	       $query = mysqli_query($con, "SELECT nome, nome_disc, nome_sala, dia FROM aula
+           LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
+           LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
+           LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
+           LEFT JOIN sala ON aula.sala_id_sala = sala.id_sala
+           LEFT JOIN professor ON aula.professor_id_prof = professor.id_prof
+           WHERE nome = '$professor' AND dia = '$hoje' GROUP BY nome")
 	        or die("<br>Erro: ".mysqli_error($con));
         }
 
      if ($disciplina <> ""){
 	         // executando a consulta no banco de dados:
-	          $query = mysqli_query($con, "SELECT * FROM qr_tabela WHERE disciplina = '$disciplina' AND dia = '$hoje' GROUP BY professor")
+	          $query = mysqli_query($con, "SELECT nome, nome_disc, nome_sala, dia FROM aula
+              LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
+              LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
+              LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
+              LEFT JOIN sala ON aula.sala_id_sala = sala.id_sala
+              LEFT JOIN professor ON aula.professor_id_prof = professor.id_prof
+              WHERE nome_disc = '$disciplina' AND dia = '$hoje' GROUP BY nome")
 	           or die("<br>Erro: ".mysqli_error($con));
            }
            // Colocando os dados retornados pela consulta em um vetor $resultado
@@ -60,12 +71,12 @@ include("menu.php");
     </tr>
     </thead>
 
-    <h5 style="text-align:center"><?php echo $resultado["curso"] ?></h5>
+    <h5 style="text-align:center"><?php echo $resultado["nome_curso"] ?></h5>
     <tbody>
     <tr>
-	     <td><?php echo $resultado["professor"]?></td>
-	     <td><?php echo $resultado["sala"]?></td>
-	     <td><?php echo $resultado["disciplina"]?></td>
+	     <td><?php echo $resultado["nome"]?></td>
+	     <td><?php echo $resultado["nome_sala"]?></td>
+	     <td><?php echo $resultado["nome_disc"]?></td>
     </tr>
     </tbody>
     <?php
@@ -97,7 +108,7 @@ include("menu.php");
       <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
         <h5>Segunda</h5>
       </div>
-      <?php $dia_escolhido = 'Segunda'; include("dia_escolhido.php");?>
+      <?php $dia_escolhido = 'segunda'; include("dia_escolhido.php");?>
     </div>
   </div>
 
@@ -106,7 +117,7 @@ include("menu.php");
       <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
         <h5>Terça</h5>
       </div>
-      <?php $dia_escolhido = 'Terça'; include("dia_escolhido.php");?>
+      <?php $dia_escolhido = 'terça'; include("dia_escolhido.php");?>
     </div>
   </div>
 
@@ -115,7 +126,7 @@ include("menu.php");
       <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
         <h5>Quarta</h5>
       </div>
-      <?php $dia_escolhido = 'Quarta'; include("dia_escolhido.php");?>
+      <?php $dia_escolhido = 'quarta'; include("dia_escolhido.php");?>
     </div>
   </div>
 
@@ -124,7 +135,7 @@ include("menu.php");
       <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
         <h5>Quinta</h5>
       </div>
-      <?php $dia_escolhido = 'Quinta'; include("dia_escolhido.php");?>
+      <?php $dia_escolhido = 'quinta'; include("dia_escolhido.php");?>
     </div>
   </div>
 
@@ -133,7 +144,7 @@ include("menu.php");
       <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
         <h5>Sexta</h5>
       </div>
-      <?php $dia_escolhido = 'Sexta'; include("dia_escolhido.php");?>
+      <?php $dia_escolhido = 'sexta'; include("dia_escolhido.php");?>
     </div>
   </div>
 
@@ -142,7 +153,7 @@ include("menu.php");
       <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
         <h5>Sábado</h5>
       </div>
-      <?php $dia_escolhido = 'Sabado'; include("dia_escolhido.php");?>
+      <?php $dia_escolhido = 'sabado'; include("dia_escolhido.php");?>
     </div>
   </div>
 </div>
