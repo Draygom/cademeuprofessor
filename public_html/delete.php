@@ -1,4 +1,4 @@
-<?php
+<?php //Arquivo que serve para deletar dados do banco de dados
 require('dbcon.php'); //faz a conexão com o banco de dados
 
 if ($id_curso=$_REQUEST['id_curso']) {

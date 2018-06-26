@@ -12,7 +12,7 @@ or die("<br>Erro: ".mysqli_error($con));
 ?>
    <div class="container-fluid">
      <a href="index.php"> <img src="imagens/logo.png" class="img-fluid" alt="Logo"></a>
-     <h2 style="text-align:center;"><b>Escolha o seu curso</b></h2>
+     <h5 class="display-5" style="text-align:center; color:gray;"><b>Escolha o seu curso</b></h5>
      <center>
        <div class="btn-group-vertical col">
          <?php

@@ -26,13 +26,13 @@
         }
     }
   } ?>
-<div class="card mb-3 mx-auto border-warning rounded-0" style="width: 18rem;">
-<h1 class="display-5 text-center">Log In</h1>
+<div class="card mb-3 mx-auto rounded-0" style="width: 18rem;">
+<h3 class="display-5" style="text-align:center; color:#626262;">Login</h3>
 <div class="container-fluid">
 <form action="" method="post" name="login">
 <input type="text" class="form-control my-1" name="apelido" placeholder="Apelido" required />
 <input type="password" class="form-control my-1" name="password" placeholder="Senha" required />
-<input name="submit" class="btn btn-warning col" type="submit" value="Login" />
+<input name="submit" class="btn col" style="background-color:#ee7f22" type="submit" value="Login" />
 </form>
 </div>
 </div>

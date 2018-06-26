@@ -22,7 +22,7 @@ if (!isset($_SESSION['id_usuarios'])) {
     }
 </style>
 </head>
-<body style="background-color:lightyellow">
+<body style="background-color:white">
   <?php if (!isset($_SESSION["apelido"])) { ?>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ee7f22">
     <a href="index.php" class="navbar-brand">Home</a>

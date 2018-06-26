@@ -27,7 +27,10 @@ $query = mysqli_query($con, "SELECT * FROM curso")
 
     <?php //seleciona o id da turma para criar uma tabela se tiverem aulas cadastradas para aquela turma
           $count = 1; // numero da turma
-          $t_query = "SELECT id_turma FROM aula LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma" or die("<br>Erro: ".mysqli_error($con));
+          $t_query = "SELECT id_turma FROM aula 
+          LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
+          LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
+          WHERE nome_curso = '$curso' " or die("<br>Erro: ".mysqli_error($con));
           $turma = mysqli_query($con, $t_query);
           while ($row = mysqli_fetch_assoc($turma)) {
             if ($row["id_turma"] == $count) {

@@ -21,7 +21,7 @@ include("menu.php");
 
      if ($professor <> ""){
 	      // executando a consulta no banco de dados:
-	       $query = mysqli_query($con, "SELECT nome, nome_disc, nome_sala, dia FROM aula
+	       $query = mysqli_query($con, "SELECT nome, nome_disc, nome_curso, nome_sala, localizacao, dia FROM aula
            LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
            LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
            LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
@@ -32,8 +32,8 @@ include("menu.php");
         }
 
      if ($disciplina <> ""){
-	         // executando a consulta no banco de dados:
-	          $query = mysqli_query($con, "SELECT nome, nome_disc, nome_sala, dia FROM aula
+	      // executando a consulta no banco de dados:
+	        $query = mysqli_query($con, "SELECT nome, nome_disc, nome_curso, nome_sala, localizacao, dia FROM aula
               LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
               LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
               LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
@@ -48,7 +48,7 @@ include("menu.php");
 
     <div class="col-sm-12">
 
-    <?php
+    <?php //caso não tenha aula cadastrada no dia em que se faz a busca
     if ($qt_registros == 0){
     ?>
       <div class="alert alert-danger">Não há registro dessa aula para hoje</div>
@@ -60,9 +60,9 @@ include("menu.php");
     <?php
         while ($resultado = mysqli_fetch_array($query)) {
 	?>
-
+  <h3 class="display-5" style="text-align:center; color:#626262;"><?php echo $resultado["nome_curso"] ?></h3>
   <!-- Exibe a tabela com professor, sala e curso no dia em questao  -->
-  <table class="table table-light">
+  <table class="table">
     <thead>
     <tr>
 	     <th>Professor</th>
@@ -71,11 +71,10 @@ include("menu.php");
     </tr>
     </thead>
 
-    <h5 style="text-align:center"><?php echo $resultado["nome_curso"] ?></h5>
     <tbody>
     <tr>
 	     <td><?php echo $resultado["nome"]?></td>
-	     <td><?php echo $resultado["nome_sala"]?></td>
+	     <td><a href="https://www.google.com/maps?q=<?php echo $resultado['localizacao']?>" target="_blank" class="btn btn-outline-light rounded-0"  style="background-color:#ee7f22"><?php echo $resultado['nome_sala'];?></a></td>
 	     <td><?php echo $resultado["nome_disc"]?></td>
     </tr>
     </tbody>
@@ -84,28 +83,28 @@ include("menu.php");
     ?>
     <!-- Botão de voltar -->
     </table>
-    <button type="button" class="btn btn-block btn-warning" onClick="history.go(-1)">&larr; Voltar</button>
+    <button type="button" class="btn btn-block rounded-0" style="background-color:#ee7f22" onClick="history.go(-1)">&larr; Voltar</button>
     </div>
 
     <!-- Exibe a lista com os outros dias da semana -->
     <div class="col-sm-12" style="color:#a6a6a6">
-       Veja abaixo as aulas desse professor em outros dias da semana &#8681;
+       Veja abaixo as aulas desse professor em outros dias da semana
     </div>
 
   <div class="col-sm-12" style="margin-top:1%">
 
   <div id="accordion">
 
-  <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;margin-right:0.1%;" type="button" class="btn btn-warning " data-toggle="collapse" data-target="#segunda">Seg</button>
-  <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;margin-right:0.1%;" type="button" class="btn btn-warning " data-toggle="collapse" data-target="#terça">Ter</button>
-  <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;margin-right:0.1%;" type="button" class="btn btn-warning " data-toggle="collapse" data-target="#quarta">Qua</button>
-  <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;margin-right:0.1%;" type="button" class="btn btn-warning " data-toggle="collapse" data-target="#quinta">Qui</button>
-  <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;margin-right:0.1%;" type="button" class="btn btn-warning " data-toggle="collapse" data-target="#sexta">Sex</button>
+  <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;margin-right:0.1%;background-color:#ee7f22" type="button" class="btn" data-toggle="collapse" data-target="#segunda">Seg</button>
+  <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;margin-right:0.1%;background-color:#ee7f22" type="button" class="btn" data-toggle="collapse" data-target="#terça">Ter</button>
+  <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;margin-right:0.1%;background-color:#ee7f22" type="button" class="btn" data-toggle="collapse" data-target="#quarta">Qua</button>
+  <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;margin-right:0.1%;background-color:#ee7f22" type="button" class="btn" data-toggle="collapse" data-target="#quinta">Qui</button>
+  <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;margin-right:0.1%;background-color:#ee7f22" type="button" class="btn" data-toggle="collapse" data-target="#sexta">Sex</button>
   <button style="margin-top:2px;margin-bottom:2px;border-radius: 50px;width:15.4%;background:#ff471a;border:#ff471a;color:white;" type="button" class="btn btn-warning " data-toggle="collapse" data-target="#sabado">Sáb</button>
 
   <div id="segunda" class="collapse" data-parent="#accordion">
-    <div class="col-sm-12" style="border:1px solid orange;margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
-      <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
+    <div class="col-sm-12" style="margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
+      <div class="col-sm-12" style="text-align:center;background-color:#ee7f22;color:white;">
         <h5>Segunda</h5>
       </div>
       <?php $dia_escolhido = 'segunda'; include("dia_escolhido.php");?>
@@ -113,8 +112,8 @@ include("menu.php");
   </div>
 
   <div id="terça" class="collapse" data-parent="#accordion">
-    <div class="col-sm-12" style="border:1px solid orange;margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
-      <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
+    <div class="col-sm-12" style="margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
+      <div class="col-sm-12" style="text-align:center;background-color:#ee7f22;color:white;">
         <h5>Terça</h5>
       </div>
       <?php $dia_escolhido = 'terça'; include("dia_escolhido.php");?>
@@ -122,8 +121,8 @@ include("menu.php");
   </div>
 
   <div id="quarta" class="collapse" data-parent="#accordion">
-    <div class="col-sm-12" style="border:1px solid orange;margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
-      <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
+    <div class="col-sm-12" style="margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
+      <div class="col-sm-12" style="text-align:center;background-color:#ee7f22;color:white;">
         <h5>Quarta</h5>
       </div>
       <?php $dia_escolhido = 'quarta'; include("dia_escolhido.php");?>
@@ -131,8 +130,8 @@ include("menu.php");
   </div>
 
   <div id="quinta" class="collapse" data-parent="#accordion">
-    <div class="col-sm-12" style="border:1px solid orange;margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
-      <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
+    <div class="col-sm-12" style="margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
+      <div class="col-sm-12" style="text-align:center;background-color:#ee7f22;color:white;">
         <h5>Quinta</h5>
       </div>
       <?php $dia_escolhido = 'quinta'; include("dia_escolhido.php");?>
@@ -140,8 +139,8 @@ include("menu.php");
   </div>
 
   <div id="sexta" class="collapse" data-parent="#accordion">
-    <div class="col-sm-12" style="border:1px solid orange;margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
-      <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
+    <div class="col-sm-12" style="margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
+      <div class="col-sm-12" style="text-align:center;background-color:#ee7f22;color:white;">
         <h5>Sexta</h5>
       </div>
       <?php $dia_escolhido = 'sexta'; include("dia_escolhido.php");?>
@@ -149,8 +148,8 @@ include("menu.php");
   </div>
 
   <div id="sabado" class="collapse" data-parent="#accordion">
-    <div class="col-sm-12" style="border:1px solid orange;margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
-      <div class="col-sm-12" style="text-align:center;background-color:orange;color:white;">
+    <div class="col-sm-12" style="margin-bottom:1%;margin-top:1%;padding-left:0px;padding-right:0px">
+      <div class="col-sm-12" style="text-align:center;background-color:#ff471a;color:white;">
         <h5>Sábado</h5>
       </div>
       <?php $dia_escolhido = 'sabado'; include("dia_escolhido.php");?>

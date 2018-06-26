@@ -16,8 +16,8 @@ include("menu.php");
   or die("<br>Erro: ".mysqli_error($con));
   ?>
   <!-- mostra o nome do curso -->
-  <h2 style="text-align:center;"><?php echo $curso;?></h2>
-  <h5 style="text-align:center;"><b>Disciplinas</b></h5>
+  <h3 class="display-5" style="text-align:center; color:#626262;"><?php echo $curso;?></h3>
+  <h5 class="display-5" style="text-align:center; color:#949494;"><b>Disciplinas</b></h5>
   <?php
   // Colocando os dados retornados pela consulta em um vetor $resultado
   while ($resultado = mysqli_fetch_array($query)) {
@@ -29,6 +29,7 @@ include("menu.php");
     } // fim while
 ?>
 </div>
+
 <?php
 include("bottom.php");
 ?>

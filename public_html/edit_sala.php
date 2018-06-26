@@ -11,6 +11,7 @@ $row = mysqli_fetch_assoc($result);
 <title>Editar</title>
 
 <?php
+//altera na tabela os dados da sala
 $status = "";
 if(isset($_POST['new']) && $_POST['new']==1)
 {
@@ -24,6 +25,7 @@ echo '<div class="alert alert-success">'.$status.'</div>';
 echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=regist_sala.php">';
 }else {
 ?>
+<!-- Formulário exibe os dados da sala e a opção de inserir novos dados -->
 <div class="container-fluid">
   <div class="card">
     <div class="card-body">

@@ -36,7 +36,7 @@ if ($qt_registros == 0){
    while ($resultado = mysqli_fetch_array($query)) {
 ?>
 
-  <table class="table table-light">
+  <table class="table">
     <thead>
     <tr>
        <th>Professor</th>
@@ -49,7 +49,7 @@ if ($qt_registros == 0){
     <tbody>
     <tr>
        <td><?php echo $resultado["nome"]?></td>
-       <td><?php echo $resultado["nome_sala"]?></td>
+       <td><a href="https://www.google.com/maps?q=<?php echo $resultado['localizacao']?>" target="_blank" class="btn btn-outline-light rounded-0"  style="background-color:#ee7f22"><?php echo $resultado['nome_sala'];?></a></td>
        <td><?php echo $resultado["nome_disc"]?></td>
     </tr>
     </tbody>

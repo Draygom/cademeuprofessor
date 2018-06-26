@@ -17,6 +17,7 @@ $row = mysqli_fetch_assoc($result);
 <title>Editar Aula</title>
 
 <?php
+//altera os dados da aula na tabela do BD
 $status = "";
 if(isset($_POST['new']) && $_POST['new']==1)
 {
@@ -32,6 +33,7 @@ echo '<div class="alert alert-success">'.$status.'</div>';
 echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=regist_quadro.php?c='.$row['nome_curso'].'">';
 }else {
 ?>
+<!-- Formulário exibe os dados da aula e a opção de inserir novos dados -->
 <div class="container-fluid">
   <div class="card">
     <div class="card-body ">
