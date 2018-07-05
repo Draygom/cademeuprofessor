@@ -59,7 +59,7 @@ if (!isset($_SESSION['id_usuarios'])) {
   </nav>
   <?php } ?>
     <form class="form-inline" name="frm_busca" action="busca.php" method="get">
-      <input type="text" id="b" name="b" class="form-control col rounded-0 border-0" placeholder="Professor ou disciplina..." aria-label="pesquisa">
+      <input type="text" id="b" name="b" class="form-control col rounded-0 border-right-0" placeholder="Professor ou disciplina..." aria-label="pesquisa">
       <div class="input-group-append">
         <button class="btn btn-light" type="submit">Buscar</button>
       </div>

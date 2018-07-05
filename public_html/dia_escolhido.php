@@ -1,7 +1,7 @@
 <?php
 if ($professor <> ""){
    // executando a consulta no banco de dados:
-    $query = mysqli_query($con, "SELECT nome, nome_disc, nome_sala, dia FROM aula
+    $query = mysqli_query($con, "SELECT nome, nome_disc, nome_sala, localizacao, dia FROM aula
       LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
       LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
       LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
@@ -13,7 +13,7 @@ if ($professor <> ""){
 
 if ($disciplina <> ""){
       // executando a consulta no banco de dados:
-       $query = mysqli_query($con, "SELECT nome, nome_disc, nome_sala, dia FROM aula
+       $query = mysqli_query($con, "SELECT nome, nome_disc, nome_sala, localizacao, dia FROM aula
          LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
          LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
          LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
