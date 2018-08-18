@@ -4,7 +4,7 @@ include("menu.php"); //incliu o cabeçalho da pagina
 include("auth.php"); //incluir o arquivo de autenticação em todas a paginas privadas
 
 //seleciona todos os cursos cadastrados
-$query = mysqli_query($con, "SELECT * FROM curso")
+$query = mysqli_query($con, "SELECT * FROM curso ORDER BY nome_curso")
  or die("<br>Erro: ".mysqli_error($con));
 ?>
 <title>Quadro de horários</title>

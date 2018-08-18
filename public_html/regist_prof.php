@@ -17,7 +17,8 @@ include("auth.php"); //incluir o arquivo de autenticação em todas a paginas pr
             <input type="text" class="form-control my-1" name="nome" placeholder="Nome do professor" required />
           </div>
         </div>
-        <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" /> <button type="button" class="btn btn-warning" onClick="history.go(-1)">Voltar</button>
+        <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" />
+        <a href="regist_prof.php" class="btn btn-outline-light"  style="background-color:#ee7f22" >Voltar</a>
       </form>
       <?php
       //exibe a confirmação do cadastro

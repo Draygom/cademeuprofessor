@@ -7,7 +7,7 @@ include("menu.php"); //incliu o cabeçalho da pagina
 //tratando os erros
 error_reporting(E_ALL ^ E_NOTICE);
 
-$query = mysqli_query($con, "SELECT * FROM curso")
+$query = mysqli_query($con, "SELECT * FROM curso ORDER BY nome_curso")
 or die("<br>Erro: ".mysqli_error($con));
 ?>
    <div class="container-fluid">

@@ -45,7 +45,8 @@ $curso = $_GET["c"];
 
           </div>
         </div>
-        <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" /> <button type="button" class="btn btn-warning" onClick="history.go(-1)">Voltar</button>
+        <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" />
+        <a href="quadros.php" class="btn btn-outline-light"  style="background-color:#ee7f22" >Voltar</a>
       </form>
       <?php
       //exibe a confirmação do cadastro

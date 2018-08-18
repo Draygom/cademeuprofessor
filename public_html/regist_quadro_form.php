@@ -14,12 +14,12 @@
   <input type="hidden" name="id_curso_<?php echo $dia ?>" value="<?php echo $resultado["id_curso"] ?>" />
 <?php } ?>
 
+  <?php  ?>
   <select class="custom-select my-1" required name="id_disc_<?php echo $dia ?>" id="disciplina">
     <option >-- Selecione a disciplina --</option>
     <option value="NE">-- NE --</option>
     <?php
-    $query = mysqli_query($con, "SELECT * FROM disciplina")
-    or die("<br>Erro: ".mysqli_error($con));
+    $query = mysqli_query($con, "SELECT disciplina.id_disc, disciplina.nome_disc FROM disciplina LEFT JOIN curso ON disciplina.curso_id_curso = curso.id_curso WHERE nome_curso = '$curso' ORDER BY nome_disc") or die("<br>Erro: ".mysqli_error($con));
     // Colocando os dados retornados pela consulta em um vetor $resultado
     while ($resultado = mysqli_fetch_array($query)) {
       ?>
@@ -33,7 +33,7 @@
     <option value="">-- Selecione o professor --</option>
     <option value="NE">-- NE --</option>
     <?php
-    $query = mysqli_query($con, "SELECT * FROM professor")
+    $query = mysqli_query($con, "SELECT * FROM professor ORDER BY nome")
     or die("<br>Erro: ".mysqli_error($con));
     // Colocando os dados retornados pela consulta em um vetor $resultado
     while ($resultado = mysqli_fetch_array($query)) {
@@ -58,5 +58,5 @@
 } // fim while
 ?>
   </select>
-  
+
 </div>
