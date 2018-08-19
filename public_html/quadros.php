@@ -22,7 +22,7 @@ $query = mysqli_query($con, "SELECT * FROM curso ORDER BY nome_curso")
     <?php } ?>
     </div>
   </div>
-
+  <a href="dashboard.php" class="btn btn-outline-light"  style="background-color:#ee7f22" >Voltar</a>
 </div>
 <?php
 include("bottom.php");

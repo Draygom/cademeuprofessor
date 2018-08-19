@@ -8,7 +8,6 @@ include("auth.php"); //incluir o arquivo de autenticação em todas a paginas pr
 <div class="container-fluid">
   <div class="card my-2">
     <div class="card-body">
-      <?php Include("insert_disc.php"); //codigo de cadastro ?>
       <h1>Cadastrar nova disciplina</h1>
       <form name="form" method="post" action="">
         <div class="form-group row">
@@ -17,6 +16,8 @@ include("auth.php"); //incluir o arquivo de autenticação em todas a paginas pr
             <select class="custom-select" required name="id_curso" id="curso">
               <option >-- Selecione o Curso --</option>
               <?php
+              $query = mysqli_query($con, "SELECT * FROM curso ORDER BY nome_curso")
+              or die("<br>Erro: ".mysqli_error($con));
               // Colocando os dados retornados pela consulta em um vetor $resultado
               while ($resultado = mysqli_fetch_array($query)) {
                 ?>
@@ -28,9 +29,11 @@ include("auth.php"); //incluir o arquivo de autenticação em todas a paginas pr
             <input type="text" class="form-control my-1" name="nome_disc" placeholder="Nome da disciplina" required />
           </div>
         </div>
-        <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" /> <button type="button" class="btn btn-warning" onClick="history.go(-1)">Voltar</button>
+        <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" />
+        <a href="dashboard.php" class="btn btn-outline-light"  style="background-color:#ee7f22" >Voltar</a>
       </form>
       <?php
+      Include("insert_disc.php"); //codigo de cadastro
       //exibe a confirmação do cadastro
       if($status !== ""){
         echo '<div class="alert alert-success alert-dismissible fade show">' .$status. '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -56,7 +59,7 @@ include("auth.php"); //incluir o arquivo de autenticação em todas a paginas pr
         <tbody>
           <?php
           $count=1;
-          $sel_query="SELECT id_disc, disciplina.nome_disc, curso.nome_curso from disciplina INNER JOIN curso ON disciplina.curso_id_curso = curso.id_curso ORDER BY id_curso desc;";
+          $sel_query="SELECT id_disc, disciplina.nome_disc, curso.nome_curso from disciplina INNER JOIN curso ON disciplina.curso_id_curso = curso.id_curso ORDER BY id_curso;";
           $result = mysqli_query($con, $sel_query);
           while($row = mysqli_fetch_assoc($result)) { ?>
             <tr>

@@ -21,13 +21,14 @@ $query = mysqli_query($con, "SELECT * FROM curso")
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="regist_quadro.php?c=<?php echo $curso ?>">Cadastrar/Editar</a>
+          <a class="nav-item nav-link" href="quadros.php">Voltar</a>
         </div>
       </div>
     </nav>
 
     <?php //seleciona o id da turma para criar uma tabela se tiverem aulas cadastradas para aquela turma
           $count = 1; // numero da turma
-          $t_query = "SELECT id_turma FROM aula 
+          $t_query = "SELECT id_turma FROM aula
           LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
           LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
           WHERE nome_curso = '$curso' " or die("<br>Erro: ".mysqli_error($con));

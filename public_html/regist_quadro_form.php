@@ -48,7 +48,7 @@
     <option >-- Selecione a sala --</option>
     <option value="NE">-- NE --</option>
     <?php
-    $query = mysqli_query($con, "SELECT * FROM sala")
+    $query = mysqli_query($con, "SELECT * FROM sala ORDER BY nome_sala")
     or die("<br>Erro: ".mysqli_error($con));
     // Colocando os dados retornados pela consulta em um vetor $resultado
     while ($resultado = mysqli_fetch_array($query)) {

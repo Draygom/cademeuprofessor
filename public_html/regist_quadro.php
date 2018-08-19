@@ -46,7 +46,7 @@ $curso = $_GET["c"];
           </div>
         </div>
         <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" />
-        <a href="quadros.php" class="btn btn-outline-light"  style="background-color:#ee7f22" >Voltar</a>
+        <a href="quadro_aula.php?c=<?php echo $curso ?>" class="btn btn-outline-light"  style="background-color:#ee7f22" >Voltar</a>
       </form>
       <?php
       //exibe a confirmação do cadastro

@@ -3,7 +3,7 @@ require('dbcon.php'); //faz a conexão com o banco de dados
 include("menu.php"); //incliu o cabeçalho da pagina
 include("auth.php"); //incluir o arquivo de autenticação em todas a paginas privadas
 ?>
-<title>Cursos</title>
+<title>Professores</title>
 
 <div class="container-fluid">
   <div class="card my-2">
@@ -45,7 +45,7 @@ include("auth.php"); //incluir o arquivo de autenticação em todas a paginas pr
         <tbody>
           <?php
           $count=1;
-          $sel_query="Select * from professor ORDER BY id_prof desc;";
+          $sel_query="Select * from professor ORDER BY nome;";
           $result = mysqli_query($con, $sel_query);
           while($row = mysqli_fetch_assoc($result)) { ?>
             <tr>

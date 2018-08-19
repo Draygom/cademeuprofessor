@@ -21,6 +21,7 @@ or die("<br>Erro: ".mysqli_error($con));
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="regist_curso.php">Cadastrar/Editar</a>
+            <a class="nav-item nav-link" href="dashboard.php">Voltar</a>
           </div>
         </div>
       </nav>

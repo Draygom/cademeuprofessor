@@ -27,7 +27,7 @@ $qt_registros =  mysqli_affected_rows($con);
 
 if ($qt_registros == 0){
         ?>
-        <div class="alert alert-danger" style="margin-left:1%;margin-right:1%">Não há registro dessa aula para hoje</div>
+        <div class="alert alert-danger" style="margin-left:1%;margin-right:1%">Não há registro dessa aula para esse dia</div>
 <?php
     }
 ?>

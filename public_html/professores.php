@@ -5,7 +5,7 @@ include("auth.php"); //incluir o arquivo de autenticação em todas a paginas pr
 //tratando os erros
 error_reporting(E_ALL ^ E_NOTICE);
 // executando a consulta no banco de dados:
-$query = mysqli_query($con, "SELECT * FROM professor ")
+$query = mysqli_query($con, "SELECT * FROM professor ORDER BY nome")
 or die("<br>Erro: ".mysqli_error($con));
 ?>
 <title>Professores</title>
@@ -21,6 +21,7 @@ or die("<br>Erro: ".mysqli_error($con));
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="regist_prof.php">Cadastrar/Editar</a>
+            <a class="nav-item nav-link" href="dashboard.php">Voltar</a>
           </div>
         </div>
       </nav>
