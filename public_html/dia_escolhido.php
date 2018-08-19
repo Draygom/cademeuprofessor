@@ -1,7 +1,7 @@
 <?php
 if ($professor <> ""){
    // executando a consulta no banco de dados:
-    $query = mysqli_query($con, "SELECT nome, nome_disc, nome_sala, localizacao, dia FROM aula
+    $query = mysqli_query($con, "SELECT nome, nome_disc, nome_curso, nome_sala, localizacao, dia FROM aula
       LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
       LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
       LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
@@ -13,7 +13,7 @@ if ($professor <> ""){
 
 if ($disciplina <> ""){
       // executando a consulta no banco de dados:
-       $query = mysqli_query($con, "SELECT nome, nome_disc, nome_sala, localizacao, dia FROM aula
+       $query = mysqli_query($con, "SELECT nome, nome_disc, nome_curso, nome_sala, localizacao, dia FROM aula
          LEFT JOIN turma ON aula.turma_id_turma = turma.id_turma
          LEFT JOIN curso ON aula.curso_id_curso = curso.id_curso
          LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
@@ -35,7 +35,8 @@ if ($qt_registros == 0){
 <?php
    while ($resultado = mysqli_fetch_array($query)) {
 ?>
-
+  <h3 class="display-5" style="text-align:center; color:#626262;"><?php echo $resultado["nome_curso"] ?></h3>
+  <!-- Exibe a tabela com professor, sala e curso no dia em questao  -->
   <table class="table">
     <thead>
     <tr>
@@ -45,7 +46,6 @@ if ($qt_registros == 0){
     </tr>
     </thead>
 
-    <h5 style="text-align:center"><?php echo $resultado["nome_curso"] ?></h5>
     <tbody>
     <tr>
        <td><?php echo $resultado["nome"]?></td>
