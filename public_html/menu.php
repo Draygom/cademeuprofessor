@@ -44,6 +44,7 @@ if (!isset($_SESSION['id_usuarios'])) {
   <?php }else{ ?>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ee7f22">
     <a href="index.php" class="navbar-brand">Home</a>
+    <a href="salas.php" class="navbar-brand">salas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
