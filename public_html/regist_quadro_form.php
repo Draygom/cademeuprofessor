@@ -16,7 +16,7 @@
 
   <?php  ?>
   <select class="custom-select my-1" required name="id_disc_<?php echo $dia ?>" id="disciplina">
-    <option >-- Selecione a disciplina --</option>
+    <option value="">-- Selecione a disciplina --</option>
     <option value="NE">-- NE --</option>
     <?php
     $query = mysqli_query($con, "SELECT disciplina.id_disc, disciplina.nome_disc FROM disciplina LEFT JOIN curso ON disciplina.curso_id_curso = curso.id_curso WHERE nome_curso = '$curso' ORDER BY nome_disc") or die("<br>Erro: ".mysqli_error($con));
@@ -45,7 +45,7 @@
   </select>
 
   <select class="custom-select my-1" required name="id_sala_<?php echo $dia ?>" id="sala">
-    <option >-- Selecione a sala --</option>
+    <option value="">-- Selecione a sala --</option>
     <option value="NE">-- NE --</option>
     <?php
     $query = mysqli_query($con, "SELECT * FROM sala ORDER BY nome_sala")

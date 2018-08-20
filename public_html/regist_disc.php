@@ -2,30 +2,27 @@
 require('dbcon.php'); //faz a conexão com o banco de dados
 include("menu.php"); //incliu o cabeçalho da pagina
 include("auth.php"); //incluir o arquivo de autenticação em todas a paginas privadas
+//recebe o curso escolhido
+$curso = $_GET["c"];
 ?>
 <title>Cursos</title>
 
 <div class="container-fluid">
   <div class="card my-2">
     <div class="card-body">
-      <h1>Cadastrar nova disciplina</h1>
+      <h1>Cadastrar nova disciplina para <?php echo $curso ?></h1>
       <form name="form" method="post" action="">
         <div class="form-group row">
           <div class="col-sm">
             <input type="hidden" name="new" value="1" />
-            <select class="custom-select" required name="id_curso" id="curso">
-              <option >-- Selecione o Curso --</option>
-              <?php
-              $query = mysqli_query($con, "SELECT * FROM curso ORDER BY nome_curso")
-              or die("<br>Erro: ".mysqli_error($con));
-              // Colocando os dados retornados pela consulta em um vetor $resultado
-              while ($resultado = mysqli_fetch_array($query)) {
-                ?>
-            <option value="<?php echo $resultado["id_curso"] ?>"><?php echo $resultado["nome_curso"] ?></option>
+            <!-- coleta o id do curso escolhido -->
             <?php
-          } // fim while
-          ?>
-            </select>
+            $query = mysqli_query($con, "SELECT * FROM curso WHERE nome_curso = '$curso'")
+            or die("<br>Erro: ".mysqli_error($con));
+            while ($resultado = mysqli_fetch_array($query)) {
+            ?>
+            <input type="hidden" name="id_curso" value="<?php echo $resultado["id_curso"] ?>" />
+          <?php } ?>
             <input type="text" class="form-control my-1" name="nome_disc" placeholder="Nome da disciplina" required />
           </div>
         </div>
