@@ -58,7 +58,7 @@ echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=regist_quadro.php?c='.$row['nom
               <option >-- Selecione a disciplina --</option>
               <option value="NE">-- NE --</option>
               <?php
-              $query = mysqli_query($con, "SELECT * FROM disciplina")
+              $query = mysqli_query($con, "SELECT disciplina.id_disc, disciplina.nome_disc FROM disciplina LEFT JOIN curso ON disciplina.curso_id_curso = curso.id_curso WHERE nome_curso = '".$row['nome_curso']."' ORDER BY nome_disc")
               or die("<br>Erro: ".mysqli_error($con));
               // Colocando os dados retornados pela consulta em um vetor $resultado
               while ($resultado = mysqli_fetch_array($query)) {
@@ -76,7 +76,7 @@ echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=regist_quadro.php?c='.$row['nom
               <option value="">-- Selecione o professor --</option>
               <option value="NE">-- NE --</option>
               <?php
-              $query = mysqli_query($con, "SELECT * FROM professor")
+              $query = mysqli_query($con, "SELECT * FROM professor ORDER BY nome")
               or die("<br>Erro: ".mysqli_error($con));
               // Colocando os dados retornados pela consulta em um vetor $resultado
               while ($resultado = mysqli_fetch_array($query)) {
@@ -94,7 +94,7 @@ echo '<meta HTTP-EQUIV="Refresh" CONTENT="1; URL=regist_quadro.php?c='.$row['nom
               <option >-- Selecione a sala --</option>
               <option value="NE">-- NE --</option>
               <?php
-              $query = mysqli_query($con, "SELECT * FROM sala")
+              $query = mysqli_query($con, "SELECT * FROM sala ORDER BY nome_sala")
               or die("<br>Erro: ".mysqli_error($con));
               // Colocando os dados retornados pela consulta em um vetor $resultado
               while ($resultado = mysqli_fetch_array($query)) {

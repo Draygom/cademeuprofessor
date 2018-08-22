@@ -1,5 +1,6 @@
 <!-- SELECIONA OS DADOS DA AULA PARA CADA DIA DA SEMANA -->
-<div class="card-body col-6 col-sm-3 border my-2 mx-2">
+<div class="col-4">
+<div class="card-body border my-1">
   <b><?php echo $dia ?></b>
 
   <!-- SELECIONA O DIA -->
@@ -58,5 +59,5 @@
 } // fim while
 ?>
   </select>
-
+</div>
 </div>

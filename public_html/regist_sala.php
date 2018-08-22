@@ -47,7 +47,7 @@ include("auth.php"); //incluir o arquivo de autenticação em todas a paginas pr
         <tbody>
           <?php
           $count=1;
-          $sel_query="Select * from sala ORDER BY id_sala desc;";
+          $sel_query="Select * from sala ORDER BY id_sala;";
           $result = mysqli_query($con, $sel_query);
           while($row = mysqli_fetch_assoc($result)) { ?>
             <tr>

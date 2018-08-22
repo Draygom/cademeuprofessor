@@ -42,7 +42,7 @@ if (!isset($_SESSION['id_usuarios'])) {
     </div>
   </nav>
   <?php }else{ ?>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#ee7f22">
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color:#ee7f22">
     <a href="index.php" class="navbar-brand">Home</a>
     <a href="salas.php" class="navbar-brand">Salas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

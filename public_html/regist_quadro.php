@@ -14,7 +14,6 @@ $curso = $_GET["c"];
       <h1>Cadastrar novo quadro para <?php echo $curso ?></h1>
       <form name="form" method="post" action="">
         <div class="form-group form-row">
-          <div class="col-sm">
             <input type="hidden" name="new" value="1" />
             <!-- SELECIONA TURMA -->
             <select class="custom-select my-1" required name="id_turma" id="turma">
@@ -32,7 +31,7 @@ $curso = $_GET["c"];
             </select>
 
             <!-- FORM QUE SELECIONA OS DADOS DA AULA PARA CADA DIA DA SEMANA -->
-            <div class="form-row" role="group" aria-label="Grupo do formulario">
+            <!-- <div class="form-row" role="group" aria-label="Grupo do formulario"> -->
               <?php
               $dia = "segunda"; include("regist_quadro_form.php");
               $dia = "terça"; include("regist_quadro_form.php");
@@ -41,9 +40,8 @@ $curso = $_GET["c"];
               $dia = "sexta"; include("regist_quadro_form.php");
               $dia = "sabado"; include("regist_quadro_form.php");
               ?>
-            </div>
+            <!-- </div> -->
 
-          </div>
         </div>
         <input class="btn btn-warning my-1" name="submit" type="submit" value="Enviar" />
         <a href="quadro_aula.php?c=<?php echo $curso ?>" class="btn btn-outline-light"  style="background-color:#ee7f22" >Voltar</a>

@@ -56,7 +56,7 @@ $curso = $_GET["c"];
         <tbody>
           <?php
           $count=1;
-          $sel_query="SELECT id_disc, disciplina.nome_disc, curso.nome_curso from disciplina INNER JOIN curso ON disciplina.curso_id_curso = curso.id_curso ORDER BY id_curso;";
+          $sel_query="SELECT id_disc, disciplina.nome_disc, curso.nome_curso from disciplina INNER JOIN curso ON disciplina.curso_id_curso = curso.id_curso WHERE nome_curso = '$curso';";
           $result = mysqli_query($con, $sel_query);
           while($row = mysqli_fetch_assoc($result)) { ?>
             <tr>
