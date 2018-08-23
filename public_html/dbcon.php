@@ -1,6 +1,6 @@
 <?php
 // abre a conexão com o servidor de banco de dados
-$con = mysqli_connect("localhost", "id5005369_adm", "suzi1986", "id5005369_valhalla");
+$con = mysqli_connect("localhost", "cademeup_adm", "suzi@1986", "cademeup_valhalla");
 // verifica a conexão
 if (mysqli_connect_errno())
   {

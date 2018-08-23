@@ -13,6 +13,3 @@ RewriteRule ^api/([0-9a-zA-Z_-]*)$ api.php?order_id=$1 [NC,L]
 # To internally redirect /dir/foo/ to /dir/foo.php
 RewriteCond %{DOCUMENT_ROOT}/$1.php -f
 RewriteRule ^(.*?)/?$ $1.php [L]
-
-# To fix setcookies
-php_flag output_buffering on
