@@ -10,6 +10,8 @@ include("menu.php");
      $professor = $_GET["p"];
      // recebendo o nome da disciplina
      $disciplina = $_GET["d"];
+     // recebendo o nome do curso
+     $curso = $_GET["c"];
      // Array com os dias da semana
      $diasemana = array('domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sabado');
      // Dia atual:
@@ -27,7 +29,7 @@ include("menu.php");
            LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
            LEFT JOIN sala ON aula.sala_id_sala = sala.id_sala
            LEFT JOIN professor ON aula.professor_id_prof = professor.id_prof
-           WHERE nome = '$professor' AND dia = '$hoje'")
+           WHERE nome = '$professor' AND dia = '$hoje' AND nome_curso = '$curso'")
 	        or die("<br>Erro: ".mysqli_error($con));
         }
 
@@ -39,7 +41,7 @@ include("menu.php");
               LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
               LEFT JOIN sala ON aula.sala_id_sala = sala.id_sala
               LEFT JOIN professor ON aula.professor_id_prof = professor.id_prof
-              WHERE nome_disc = '$disciplina' AND dia = '$hoje'")
+              WHERE nome_disc = '$disciplina' AND dia = '$hoje' AND nome_curso = '$curso'")
 	           or die("<br>Erro: ".mysqli_error($con));
            }
            // Colocando os dados retornados pela consulta em um vetor $resultado
@@ -60,9 +62,9 @@ include("menu.php");
     <?php
         while ($resultado = mysqli_fetch_array($query)) {
 	?>
-  <?php echo '<h5 class="display-5" style="text-align:center;">' .$resultado["nome_curso"]. ' - Turma do  ' .$resultado["periodo"]. '</h5>' ?>
   <!-- Exibe a tabela com professor, sala e curso no dia em questao  -->
   <table class="table">
+    <h5 class="display-5" style="text-align:center;"><?php echo $resultado["nome_curso"] ?> - Turma do <?php echo  $resultado["periodo"] ?></h5>
     <thead>
     <tr>
 	     <th>Professor</th>

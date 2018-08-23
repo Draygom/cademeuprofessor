@@ -24,13 +24,13 @@ include("menu.php");
         while ($resultado = mysqli_fetch_array($query)) {
         ?>
         <div class="btn-group-vertical col">
-          <a href="exibe_sala.php?p=<?php echo $resultado["nome"]?>" class="btn btn-outline-light rounded-0"  style="background-color:#ee7f22"><?php echo $resultado["nome"]?></a>
+          <a href="exibe_sala.php?p=<?php echo $resultado["nome"]?>&c=<?php echo $curso?>" class="btn btn-outline-light rounded-0"  style="background-color:#ee7f22"><?php echo $resultado["nome"]?></a>
         </div>
           <?php
 	       } // fim while
          ?>
   </div>
-  
+
   <?php
   include("bottom.php");
   ?>

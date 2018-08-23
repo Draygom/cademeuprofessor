@@ -7,7 +7,7 @@ if ($professor <> ""){
       LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
       LEFT JOIN sala ON aula.sala_id_sala = sala.id_sala
       LEFT JOIN professor ON aula.professor_id_prof = professor.id_prof
-      WHERE nome = '$professor' AND dia = '$dia_escolhido'")
+      WHERE nome = '$professor' AND dia = '$dia_escolhido' AND nome_curso = '$curso'")
      or die("<br>Erro: ".mysqli_error($con));
    }
 
@@ -19,7 +19,7 @@ if ($disciplina <> ""){
          LEFT JOIN disciplina ON aula.disciplina_id_disc = disciplina.id_disc
          LEFT JOIN sala ON aula.sala_id_sala = sala.id_sala
          LEFT JOIN professor ON aula.professor_id_prof = professor.id_prof
-         WHERE nome_disc = '$disciplina' AND dia = '$dia_escolhido'")
+         WHERE nome_disc = '$disciplina' AND dia = '$dia_escolhido' AND nome_curso = '$curso'")
         or die("<br>Erro: ".mysqli_error($con));
       }
        // Colocando os dados retornados pela consulta em um vetor $resultado
@@ -35,9 +35,9 @@ if ($qt_registros == 0){
 <?php
    while ($resultado = mysqli_fetch_array($query)) {
 ?>
-  <?php echo '<h5 class="display-5" style="text-align:center;">' .$resultado["nome_curso"]. ' - Turma do ' .$resultado["periodo"]. '</h5>' ?>
   <!-- Exibe a tabela com professor, sala e curso no dia em questao  -->
   <table class="table">
+    <h5 class="display-5" style="text-align:center;"><?php echo $resultado["nome_curso"] ?> - Turma do <?php echo  $resultado["periodo"] ?></h5>
     <thead>
     <tr>
        <th>Professor</th>
@@ -57,4 +57,5 @@ if ($qt_registros == 0){
   } // fim while
 ?>
 </table>
+
 </div>
