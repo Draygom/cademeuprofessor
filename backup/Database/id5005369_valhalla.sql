@@ -1,0 +1,1491 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.7
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: 22-Ago-2018 às 14:45
+-- Versão do servidor: 10.1.31-MariaDB
+-- PHP Version: 7.0.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `id5005369_valhalla`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `aula`
+--
+
+CREATE TABLE `aula` (
+  `id_aula` int(11) NOT NULL,
+  `turma_id_turma` int(11) NOT NULL,
+  `sala_id_sala` int(11) DEFAULT NULL,
+  `disciplina_id_disc` int(11) DEFAULT NULL,
+  `curso_id_curso` int(11) DEFAULT NULL,
+  `professor_id_prof` int(11) DEFAULT NULL,
+  `dia` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `aula`
+--
+
+INSERT INTO `aula` (`id_aula`, `turma_id_turma`, `sala_id_sala`, `disciplina_id_disc`, `curso_id_curso`, `professor_id_prof`, `dia`) VALUES
+(1, 1, 15, 32, 2, 14, 'terça'),
+(2, 1, 15, 44, 2, 15, 'quarta'),
+(3, 1, 15, 43, 2, 22, 'quinta'),
+(4, 1, 15, 49, 2, 4, 'sexta'),
+(5, 2, 15, 32, 2, 14, 'terça'),
+(6, 2, 15, 44, 2, 15, 'quarta'),
+(7, 2, 15, 43, 2, 22, 'quinta'),
+(8, 2, 15, 49, 2, 4, 'sexta'),
+(9, 3, 30, 35, 2, 16, 'segunda'),
+(10, 3, 11, 33, 2, 18, 'terça'),
+(11, 3, 30, 45, 2, 23, 'quarta'),
+(12, 3, 0, 42, 2, 5, 'quinta'),
+(13, 3, 11, 34, 2, 17, 'terça'),
+(14, 4, 15, 36, 2, 23, 'segunda'),
+(15, 4, 11, 33, 2, 18, 'terça'),
+(16, 4, 30, 45, 2, 23, 'quarta'),
+(17, 4, 44, 41, 2, 21, 'quinta'),
+(18, 4, 0, 48, 2, 5, 'sexta'),
+(19, 5, 30, 35, 2, 16, 'segunda'),
+(20, 5, 0, 34, 2, 5, 'terça'),
+(21, 5, 30, 45, 2, 23, 'quarta'),
+(22, 5, 44, 41, 2, 9, 'quinta'),
+(23, 5, 0, 46, 2, 5, 'sexta'),
+(29, 6, 30, 35, 2, 16, 'segunda'),
+(30, 6, 38, 37, 2, 19, 'terça'),
+(31, 6, 0, 50, 2, 5, 'quarta'),
+(32, 6, 44, 41, 2, 21, 'quinta'),
+(33, 6, 38, 38, 2, 18, 'terça'),
+(34, 7, 30, 35, 2, 16, 'segunda'),
+(35, 7, 39, 39, 2, 20, 'terça'),
+(36, 7, 92, 40, 2, 18, 'quarta'),
+(37, 7, 44, 41, 2, 21, 'quinta'),
+(38, 7, 39, 38, 2, 18, 'terça'),
+(39, 8, 30, 35, 2, 16, 'segunda'),
+(40, 8, 39, 51, 2, 20, 'terça'),
+(41, 8, 92, 40, 2, 18, 'quarta'),
+(42, 8, 44, 41, 2, 21, 'quinta'),
+(43, 1, 102, 52, 3, 24, 'terça'),
+(44, 1, 102, 53, 3, 25, 'quarta'),
+(45, 1, 102, 54, 3, 26, 'quinta'),
+(46, 1, 102, 55, 3, 27, 'sexta'),
+(47, 2, 102, 52, 3, 24, 'terça'),
+(48, 2, 102, 53, 3, 25, 'quarta'),
+(49, 2, 102, 54, 3, 26, 'quinta'),
+(50, 2, 102, 55, 3, 27, 'sexta'),
+(51, 3, 51, 56, 3, 26, 'quarta'),
+(52, 3, 94, 57, 3, 28, 'quinta'),
+(53, 3, 51, 59, 3, 29, 'sexta'),
+(54, 3, 51, 54, 3, 28, 'quarta'),
+(55, 3, 94, 58, 3, 24, 'quinta'),
+(56, 4, 58, 60, 3, 30, 'quarta'),
+(57, 4, 94, 57, 3, 28, 'quinta'),
+(58, 4, 39, 64, 3, 26, 'sexta'),
+(59, 4, 94, 63, 3, 25, 'quinta'),
+(60, 4, 39, 65, 3, 26, 'sexta'),
+(61, 5, 58, 60, 3, 30, 'quarta'),
+(62, 5, 38, 61, 3, 27, 'quinta'),
+(63, 5, 38, 66, 3, 0, 'sexta'),
+(64, 5, 38, 62, 3, 27, 'quinta'),
+(65, 5, 38, 67, 3, 0, 'sexta'),
+(66, 6, 58, 60, 3, 30, 'quarta'),
+(67, 6, 38, 61, 3, 27, 'quinta'),
+(68, 6, 38, 66, 3, 0, 'sexta'),
+(69, 6, 38, 62, 3, 27, 'quinta'),
+(70, 6, 38, 67, 3, 0, 'sexta'),
+(71, 1, 83, 68, 4, 31, 'segunda'),
+(72, 1, 83, 69, 4, 32, 'terça'),
+(73, 1, 83, 70, 4, 33, 'quinta'),
+(74, 1, 83, 71, 4, 31, 'sexta'),
+(75, 2, 83, 68, 4, 31, 'segunda'),
+(76, 2, 83, 69, 4, 32, 'terça'),
+(77, 2, 83, 70, 4, 33, 'quinta'),
+(78, 2, 83, 71, 4, 31, 'sexta'),
+(79, 3, 73, 85, 4, 34, 'segunda'),
+(80, 3, 0, 74, 4, 5, 'terça'),
+(81, 3, 79, 75, 4, 35, 'quinta'),
+(82, 3, 73, 76, 4, 33, 'sexta'),
+(83, 3, 73, 73, 4, 34, 'segunda'),
+(84, 4, 73, 85, 4, 34, 'segunda'),
+(85, 4, 49, 77, 4, 33, 'quarta'),
+(86, 4, 0, 78, 4, 5, 'quinta'),
+(87, 4, 49, 79, 4, 36, 'sexta'),
+(88, 5, 0, 78, 4, 5, 'segunda'),
+(89, 5, 46, 76, 4, 33, 'terça'),
+(90, 5, 0, 81, 4, 5, 'quarta'),
+(91, 5, 93, 80, 4, 37, 'quinta'),
+(92, 5, 49, 79, 4, 36, 'sexta'),
+(93, 6, 0, 82, 4, 5, 'terça'),
+(94, 6, 83, 83, 4, 37, 'quarta'),
+(95, 6, 11, 80, 4, 38, 'quinta'),
+(96, 6, 73, 76, 4, 33, 'sexta'),
+(97, 6, 83, 84, 4, 36, 'quarta'),
+(98, 7, 0, 81, 4, 5, 'segunda'),
+(99, 7, 46, 76, 4, 33, 'terça'),
+(100, 7, 46, 84, 4, 36, 'quarta'),
+(101, 7, 93, 80, 4, 37, 'quinta'),
+(102, 7, 46, 83, 4, 37, 'quarta'),
+(103, 1, 0, 86, 1, 39, 'segunda'),
+(104, 1, 0, 87, 1, 40, 'terça'),
+(105, 1, 0, 88, 1, 7, 'quinta'),
+(106, 1, 0, 28, 1, 3, 'sexta'),
+(107, 2, 52, 90, 1, 39, 'segunda'),
+(108, 2, 49, 87, 1, 40, 'terça'),
+(109, 2, 52, 88, 1, 7, 'quinta'),
+(110, 2, 52, 28, 1, 3, 'sexta'),
+(111, 3, 18, 18, 1, 7, 'segunda'),
+(112, 3, 0, 12, 1, 5, 'terça'),
+(113, 3, 18, 91, 1, 6, 'quarta'),
+(114, 3, 18, 92, 1, 43, 'quinta'),
+(115, 3, 19, 3, 1, 8, 'sexta'),
+(116, 4, 19, 7, 1, 8, 'segunda'),
+(117, 4, 52, 22, 1, 39, 'terça'),
+(118, 4, 0, 8, 1, 5, 'quarta'),
+(119, 4, 18, 92, 1, 43, 'quinta'),
+(120, 4, 19, 3, 1, 8, 'sexta'),
+(121, 5, 18, 18, 1, 7, 'segunda'),
+(122, 5, 52, 6, 1, 8, 'terça'),
+(123, 5, 0, 93, 1, 5, 'quarta'),
+(124, 5, 18, 92, 1, 43, 'quinta'),
+(125, 5, 18, 30, 1, 43, 'segunda'),
+(126, 6, 0, 12, 1, 5, 'segunda'),
+(127, 6, 52, 6, 1, 8, 'terça'),
+(128, 6, 18, 91, 1, 6, 'quarta'),
+(129, 6, 19, 11, 1, 6, 'quinta'),
+(130, 6, 48, 94, 1, 43, 'sexta'),
+(131, 7, 23, 31, 1, 7, 'segunda'),
+(132, 7, 52, 6, 1, 8, 'terça'),
+(133, 7, 18, 91, 1, 6, 'quarta'),
+(134, 7, 48, 94, 1, 43, 'sexta'),
+(135, 7, 48, 96, 1, 5, 'sexta'),
+(136, 8, 53, 97, 1, 43, 'terça'),
+(137, 8, 53, 16, 1, 17, 'quarta'),
+(138, 8, 53, 98, 1, 8, 'quinta'),
+(139, 8, 48, 94, 1, 43, 'sexta'),
+(140, 8, 48, 95, 1, 43, 'sexta'),
+(141, 1, 8, 99, 21, 45, 'segunda'),
+(142, 1, 8, 100, 21, 46, 'terça'),
+(143, 1, 8, 102, 21, 47, 'quarta'),
+(144, 1, 8, 101, 21, 23, 'quinta'),
+(145, 2, 8, 99, 21, 45, 'segunda'),
+(146, 2, 8, 100, 21, 46, 'terça'),
+(147, 2, 8, 102, 21, 47, 'quarta'),
+(148, 2, 8, 101, 21, 48, 'quinta'),
+(149, 2, 8, 103, 21, 49, 'sexta'),
+(150, 3, 13, 104, 21, 47, 'terça'),
+(151, 3, 13, 105, 21, 50, 'quarta'),
+(152, 3, 13, 106, 21, 52, 'quinta'),
+(153, 3, 0, 108, 21, 5, 'sexta'),
+(154, 3, 13, 107, 21, 47, 'quinta'),
+(155, 4, 39, 109, 21, 51, 'segunda'),
+(156, 4, 0, 110, 21, 5, 'terça'),
+(157, 4, 39, 111, 21, 46, 'quarta'),
+(158, 4, 13, 107, 21, 47, 'quinta'),
+(159, 4, 12, 112, 21, 51, 'quinta'),
+(160, 5, 39, 109, 21, 51, 'segunda'),
+(161, 5, 13, 104, 21, 47, 'terça'),
+(162, 5, 0, 113, 21, 5, 'quarta'),
+(163, 5, 39, 114, 21, 19, 'quinta'),
+(164, 5, 39, 115, 21, 52, 'quinta'),
+(165, 6, 47, 120, 21, 52, 'quarta'),
+(166, 6, 39, 114, 21, 50, 'quinta'),
+(167, 6, 39, 118, 21, 53, 'sexta'),
+(168, 6, 39, 115, 21, 52, 'quinta'),
+(169, 6, 39, 117, 21, 48, 'sexta'),
+(170, 7, 40, 119, 21, 54, 'segunda'),
+(171, 7, 0, 117, 21, 5, 'terça'),
+(172, 7, 47, 120, 21, 52, 'quarta'),
+(173, 7, 0, 121, 21, 5, 'quinta'),
+(174, 7, 40, 122, 21, 55, 'sexta'),
+(175, 7, 0, 131, 21, 47, 'sabado'),
+(176, 8, 47, 123, 21, 47, 'segunda'),
+(177, 8, 40, 124, 21, 19, 'terça'),
+(178, 8, 47, 120, 21, 52, 'quarta'),
+(179, 8, 37, 125, 21, 56, 'quinta'),
+(180, 8, 40, 122, 21, 55, 'sexta'),
+(181, 8, 0, 132, 21, 47, 'sabado'),
+(182, 8, 0, 121, 21, 5, 'quinta'),
+(183, 9, 47, 123, 21, 47, 'segunda'),
+(184, 9, 7, 126, 21, 23, 'terça'),
+(185, 9, 7, 127, 21, 53, 'quarta'),
+(186, 9, 7, 129, 21, 46, 'quinta'),
+(187, 9, 8, 103, 21, 49, 'sexta'),
+(188, 9, 0, 133, 21, 45, 'sabado'),
+(189, 9, 7, 128, 21, 45, 'quarta'),
+(190, 9, 7, 130, 21, 56, 'quinta'),
+(191, 9, 0, 117, 21, 5, 'sabado'),
+(192, 10, 40, 119, 21, 54, 'segunda'),
+(193, 10, 7, 126, 21, 48, 'terça'),
+(194, 10, 7, 127, 21, 53, 'quarta'),
+(195, 10, 7, 130, 21, 56, 'quinta'),
+(196, 10, 0, 129, 21, 5, 'sexta'),
+(197, 10, 0, 134, 21, 57, 'sabado'),
+(198, 10, 7, 128, 21, 45, 'quarta'),
+(199, 1, 86, 135, 6, 52, 'segunda'),
+(200, 1, 86, 138, 6, 45, 'quarta'),
+(201, 1, 86, 137, 6, 53, 'quinta'),
+(202, 1, 86, 139, 6, 58, 'sexta'),
+(203, 2, 61, 135, 6, 59, 'segunda'),
+(204, 2, 61, 142, 6, 49, 'terça'),
+(205, 2, 61, 137, 6, 59, 'quarta'),
+(206, 2, 61, 138, 6, 58, 'quinta'),
+(207, 2, 61, 139, 6, 46, 'sexta'),
+(208, 3, 87, 143, 6, 47, 'terça'),
+(209, 3, 87, 176, 6, 55, 'quarta'),
+(210, 3, 7, 145, 6, 49, 'quinta'),
+(211, 3, 0, 147, 6, 5, 'sexta'),
+(212, 3, 40, 146, 6, 52, 'quinta'),
+(213, 4, 0, 148, 6, 5, 'segunda'),
+(214, 4, 86, 149, 6, 46, 'terça'),
+(215, 4, 59, 151, 6, 51, 'quarta'),
+(216, 4, 7, 145, 6, 49, 'quinta'),
+(217, 4, 7, 153, 6, 47, 'quinta'),
+(218, 5, 0, 154, 6, 5, 'segunda'),
+(219, 5, 59, 155, 6, 59, 'terça'),
+(220, 5, 59, 151, 6, 51, 'quarta'),
+(221, 5, 59, 156, 6, 46, 'quinta'),
+(222, 5, 59, 157, 6, 52, 'sexta'),
+(223, 6, 16, 177, 6, 55, 'terça'),
+(224, 6, 59, 151, 6, 51, 'quarta'),
+(225, 6, 0, 159, 6, 5, 'quinta'),
+(226, 6, 59, 157, 6, 52, 'sexta'),
+(227, 6, 16, 158, 6, 19, 'terça'),
+(228, 7, 38, 160, 6, 48, 'segunda'),
+(229, 7, 59, 155, 6, 59, 'terça'),
+(230, 7, 60, 156, 6, 46, 'quinta'),
+(231, 7, 0, 153, 6, 5, 'sexta'),
+(232, 7, 0, 162, 6, 45, 'sabado'),
+(233, 7, 38, 161, 6, 19, 'segunda'),
+(234, 8, 45, 169, 6, 49, 'segunda'),
+(235, 8, 59, 155, 6, 59, 'terça'),
+(236, 8, 62, 166, 6, 53, 'quarta'),
+(237, 8, 59, 156, 6, 46, 'quinta'),
+(238, 8, 53, 168, 6, 58, 'sexta'),
+(239, 8, 0, 163, 6, 45, 'sabado'),
+(240, 8, 0, 167, 6, 5, 'sexta'),
+(241, 9, 0, 170, 6, 5, 'segunda'),
+(242, 9, 88, 171, 6, 53, 'terça'),
+(243, 9, 62, 166, 6, 53, 'quarta'),
+(244, 9, 88, 172, 6, 19, 'quinta'),
+(245, 9, 59, 157, 6, 52, 'sexta'),
+(246, 9, 0, 164, 6, 45, 'sabado'),
+(247, 9, 88, 168, 6, 58, 'sexta'),
+(248, 10, 45, 169, 6, 49, 'segunda'),
+(249, 10, 45, 166, 6, 58, 'terça'),
+(250, 10, 45, 172, 6, 19, 'quarta'),
+(251, 10, 0, 174, 6, 5, 'quinta'),
+(252, 10, 0, 175, 6, 5, 'sexta'),
+(253, 10, 0, 165, 6, 57, 'sabado'),
+(254, 10, 45, 173, 6, 58, 'segunda'),
+(255, 1, 74, 178, 7, 60, 'segunda'),
+(256, 1, 74, 179, 7, 61, 'terça'),
+(257, 1, 74, 180, 7, 60, 'quarta'),
+(258, 1, 29, 181, 7, 25, 'sexta'),
+(259, 2, 74, 179, 7, 61, 'terça'),
+(260, 2, 74, 180, 7, 60, 'quarta'),
+(261, 2, 74, 182, 7, 29, 'quinta'),
+(262, 2, 74, 183, 7, 62, 'sexta'),
+(263, 3, 0, 184, 7, 5, 'terça'),
+(264, 3, 23, 185, 7, 61, 'quarta'),
+(265, 3, 74, 182, 7, 29, 'quinta'),
+(266, 3, 23, 187, 7, 64, 'sexta'),
+(267, 4, 0, 188, 7, 5, 'terça'),
+(268, 4, 82, 189, 7, 63, 'quarta'),
+(269, 4, 74, 182, 7, 29, 'quinta'),
+(270, 4, 82, 191, 7, 65, 'sexta'),
+(271, 5, 82, 192, 7, 64, 'segunda'),
+(272, 5, 0, 193, 7, 5, 'terça'),
+(273, 5, 19, 194, 7, 65, 'quarta'),
+(274, 5, 82, 195, 7, 60, 'quinta'),
+(275, 5, 23, 197, 7, 65, 'sexta'),
+(276, 5, 0, 198, 7, 0, 'sabado'),
+(277, 5, 23, 196, 7, 67, 'sexta'),
+(278, 6, 82, 192, 7, 64, 'segunda'),
+(279, 6, 56, 199, 7, 65, 'terça'),
+(280, 6, 0, 200, 7, 5, 'quarta'),
+(281, 6, 82, 195, 7, 60, 'quinta'),
+(282, 6, 82, 191, 7, 65, 'sexta'),
+(283, 6, 0, 202, 7, 0, 'sabado'),
+(284, 6, 56, 201, 7, 66, 'sexta'),
+(285, 9, 10, 203, 22, 62, 'segunda'),
+(286, 9, 0, 204, 22, 68, 'terça'),
+(287, 9, 0, 205, 22, 5, 'segunda'),
+(288, 9, 0, 206, 22, 68, 'terça'),
+(289, 1, 97, 207, 8, 69, 'segunda'),
+(290, 1, 85, 208, 8, 70, 'terça'),
+(291, 1, 55, 210, 8, 69, 'quarta'),
+(292, 1, 29, 211, 8, 71, 'quinta'),
+(293, 1, 85, 212, 8, 72, 'sexta'),
+(294, 1, 85, 209, 8, 70, 'terça'),
+(295, 2, 97, 207, 8, 69, 'segunda'),
+(296, 2, 85, 213, 8, 71, 'quarta'),
+(297, 2, 31, 210, 8, 73, 'quinta'),
+(298, 2, 109, 211, 8, 73, 'sexta'),
+(299, 3, 20, 222, 8, 73, 'terça'),
+(300, 3, 32, 212, 8, 73, 'quarta'),
+(301, 3, 48, 223, 8, 74, 'quinta'),
+(302, 3, 0, 214, 8, 5, 'sexta'),
+(303, 4, 0, 224, 8, 62, 'segunda'),
+(304, 4, 12, 215, 8, 74, 'terça'),
+(305, 4, 12, 225, 8, 69, 'quinta'),
+(306, 4, 12, 215, 8, 74, 'sexta'),
+(307, 4, 12, 226, 8, 73, 'quinta'),
+(308, 5, 0, 228, 8, 5, 'segunda'),
+(309, 5, 12, 215, 8, 74, 'terça'),
+(310, 5, 12, 227, 8, 71, 'quarta'),
+(311, 5, 12, 215, 8, 74, 'sexta'),
+(312, 5, 12, 229, 8, 74, 'quarta'),
+(313, 6, 13, 230, 8, 70, 'segunda'),
+(314, 6, 0, 236, 8, 5, 'terça'),
+(315, 6, 12, 229, 8, 74, 'quarta'),
+(316, 6, 13, 230, 8, 70, 'quinta'),
+(317, 6, 0, 216, 8, 62, 'sexta'),
+(318, 7, 13, 230, 8, 70, 'segunda'),
+(319, 7, 13, 224, 8, 62, 'terça'),
+(320, 7, 12, 227, 8, 71, 'quarta'),
+(321, 7, 13, 230, 8, 70, 'quinta'),
+(322, 7, 0, 216, 8, 70, 'sexta'),
+(323, 7, 0, 231, 8, 76, 'quarta'),
+(324, 8, 57, 232, 8, 73, 'segunda'),
+(325, 8, 57, 232, 8, 69, 'terça'),
+(326, 8, 0, 231, 8, 76, 'quarta'),
+(327, 8, 0, 233, 8, 77, 'quinta'),
+(328, 8, 57, 217, 8, 71, 'sexta'),
+(330, 8, 57, 218, 8, 62, 'sexta'),
+(331, 9, 0, 234, 8, 68, 'quinta'),
+(332, 9, 0, 220, 8, 5, 'sexta'),
+(333, 9, 0, 219, 8, 62, 'sexta'),
+(334, 9, 0, 235, 8, 5, 'quarta'),
+(335, 9, 0, 221, 8, 68, 'quinta'),
+(336, 9, 0, 221, 8, 68, 'sexta'),
+(337, 1, 26, 237, 10, 4, 'segunda'),
+(338, 1, 101, 238, 10, 28, 'terça'),
+(339, 1, 101, 239, 10, 78, 'quinta'),
+(340, 1, 91, 240, 10, 39, 'sexta'),
+(341, 2, 75, 239, 10, 33, 'segunda'),
+(342, 2, 75, 238, 10, 26, 'terça'),
+(343, 2, 30, 241, 10, 79, 'quinta'),
+(344, 2, 75, 240, 10, 7, 'sexta'),
+(345, 3, 96, 242, 10, 80, 'segunda'),
+(346, 3, 48, 247, 10, 81, 'terça'),
+(347, 3, 48, 248, 10, 14, 'quarta'),
+(348, 3, 0, 249, 10, 5, 'quinta'),
+(349, 3, 96, 250, 10, 81, 'sexta'),
+(350, 4, 96, 242, 10, 80, 'segunda'),
+(351, 4, 96, 243, 10, 82, 'terça'),
+(352, 4, 0, 244, 10, 5, 'quarta'),
+(353, 4, 96, 245, 10, 39, 'quinta'),
+(354, 4, 0, 246, 10, 5, 'sexta'),
+(355, 5, 79, 243, 10, 82, 'segunda'),
+(356, 5, 79, 251, 10, 4, 'terça'),
+(357, 5, 79, 252, 10, 83, 'quarta'),
+(358, 5, 79, 253, 10, 35, 'quinta'),
+(359, 5, 0, 246, 10, 5, 'sexta'),
+(360, 6, 76, 254, 10, 28, 'segunda'),
+(361, 6, 79, 251, 10, 4, 'terça'),
+(362, 6, 99, 246, 10, 16, 'quarta'),
+(363, 6, 0, 255, 10, 5, 'quinta'),
+(364, 6, 76, 256, 10, 35, 'sexta'),
+(365, 7, 0, 257, 10, 5, 'segunda'),
+(366, 7, 93, 258, 10, 84, 'terça'),
+(367, 7, 79, 259, 10, 81, 'quarta'),
+(368, 7, 75, 260, 10, 84, 'quinta'),
+(369, 7, 79, 252, 10, 83, 'quarta'),
+(370, 8, 92, 261, 10, 38, 'segunda'),
+(371, 8, 93, 258, 10, 84, 'terça'),
+(372, 8, 99, 246, 10, 16, 'quarta'),
+(373, 8, 92, 262, 10, 36, 'quinta'),
+(374, 8, 0, 248, 10, 5, 'sexta'),
+(375, 8, 0, 263, 10, 0, 'sabado'),
+(376, 9, 80, 267, 10, 36, 'segunda'),
+(377, 9, 80, 269, 10, 87, 'terça'),
+(378, 9, 0, 266, 10, 0, 'quarta'),
+(379, 9, 80, 265, 10, 87, 'quinta'),
+(380, 9, 80, 264, 10, 85, 'sexta'),
+(381, 9, 0, 275, 10, 24, 'sabado'),
+(382, 9, 80, 268, 10, 84, 'segunda'),
+(383, 10, 107, 270, 10, 86, 'segunda'),
+(384, 10, 107, 262, 10, 36, 'terça'),
+(385, 10, 107, 271, 10, 31, 'quarta'),
+(386, 10, 107, 264, 10, 85, 'quinta'),
+(387, 10, 107, 272, 10, 86, 'sexta'),
+(388, 10, 0, 274, 10, 24, 'sabado'),
+(389, 10, 107, 273, 10, 86, 'sexta'),
+(390, 1, 26, 281, 23, 4, 'segunda'),
+(391, 1, 91, 282, 23, 92, 'terça'),
+(392, 1, 91, 280, 23, 94, 'quarta'),
+(393, 1, 91, 283, 23, 88, 'quinta'),
+(394, 2, 75, 283, 23, 33, 'segunda'),
+(395, 2, 75, 282, 23, 26, 'terça'),
+(396, 2, 75, 280, 23, 8, 'quarta'),
+(397, 2, 30, 279, 23, 79, 'quinta'),
+(398, 3, 96, 284, 23, 80, 'segunda'),
+(399, 3, 48, 276, 23, 81, 'terça'),
+(400, 3, 0, 277, 23, 5, 'quarta'),
+(401, 3, 0, 278, 23, 5, 'quinta'),
+(402, 3, 96, 285, 23, 81, 'sexta'),
+(403, 4, 96, 284, 23, 80, 'segunda'),
+(404, 4, 76, 287, 23, 95, 'terça'),
+(405, 4, 0, 288, 23, 5, 'quarta'),
+(406, 4, 76, 289, 23, 4, 'quinta'),
+(407, 4, 96, 285, 23, 79, 'sexta'),
+(408, 5, 77, 290, 23, 97, 'segunda'),
+(409, 5, 0, 378, 23, 5, 'terça'),
+(410, 5, 77, 291, 23, 4, 'quarta'),
+(411, 5, 76, 289, 23, 4, 'quinta'),
+(412, 5, 77, 303, 23, 96, 'sexta'),
+(413, 6, 77, 293, 23, 96, 'segunda'),
+(414, 6, 78, 294, 23, 97, 'terça'),
+(415, 6, 77, 291, 23, 4, 'quarta'),
+(416, 6, 0, 277, 23, 5, 'quinta'),
+(417, 6, 78, 295, 23, 95, 'sexta'),
+(418, 7, 77, 293, 23, 96, 'segunda'),
+(419, 7, 0, 296, 23, 5, 'terça'),
+(420, 7, 77, 291, 23, 4, 'quarta'),
+(421, 7, 77, 303, 23, 96, 'sexta'),
+(422, 7, 77, 290, 23, 97, 'segunda'),
+(423, 8, 77, 293, 23, 96, 'segunda'),
+(424, 8, 76, 287, 23, 95, 'terça'),
+(425, 8, 77, 291, 23, 4, 'quarta'),
+(426, 8, 0, 296, 23, 5, 'quinta'),
+(427, 8, 78, 295, 23, 95, 'sexta'),
+(428, 8, 0, 379, 23, 0, 'sabado'),
+(429, 9, 77, 297, 23, 97, 'segunda'),
+(430, 9, 78, 294, 23, 97, 'terça'),
+(431, 9, 78, 298, 23, 95, 'quarta'),
+(432, 9, 78, 302, 23, 17, 'quinta'),
+(433, 9, 77, 303, 23, 96, 'sexta'),
+(434, 9, 0, 379, 23, 0, 'sabado'),
+(435, 9, 84, 299, 23, 78, 'segunda'),
+(436, 9, 78, 300, 23, 97, 'terça'),
+(437, 9, 78, 301, 23, 95, 'quarta'),
+(438, 1, 103, 312, 12, 80, 'terça'),
+(439, 1, 103, 313, 12, 39, 'quarta'),
+(440, 1, 101, 314, 12, 78, 'quinta'),
+(441, 1, 91, 315, 12, 39, 'sexta'),
+(442, 2, 75, 314, 12, 33, 'segunda'),
+(443, 2, 37, 316, 12, 99, 'terça'),
+(444, 2, 94, 306, 12, 98, 'quarta'),
+(445, 2, 99, 310, 12, 30, 'quinta'),
+(446, 2, 75, 315, 12, 7, 'sexta'),
+(447, 5, 79, 304, 12, 82, 'segunda'),
+(448, 5, 79, 305, 12, 4, 'terça'),
+(449, 5, 94, 306, 12, 98, 'quarta'),
+(450, 5, 0, 307, 12, 5, 'quinta'),
+(451, 5, 0, 308, 12, 5, 'sexta'),
+(452, 6, 0, 309, 12, 5, 'segunda'),
+(453, 6, 79, 305, 12, 4, 'terça'),
+(454, 6, 94, 306, 12, 98, 'quarta'),
+(455, 6, 99, 310, 12, 30, 'quinta'),
+(456, 6, 96, 311, 12, 81, 'sexta'),
+(457, 7, 78, 317, 12, 100, 'segunda'),
+(458, 7, 96, 304, 12, 82, 'terça'),
+(459, 7, 94, 306, 12, 98, 'quarta'),
+(460, 7, 99, 310, 12, 30, 'quinta'),
+(461, 7, 96, 311, 12, 81, 'sexta'),
+(462, 8, 96, 304, 12, 82, 'terça'),
+(463, 8, 94, 306, 12, 98, 'quarta'),
+(464, 8, 0, 309, 12, 5, 'quinta'),
+(465, 8, 96, 311, 12, 81, 'sexta'),
+(466, 8, 0, 380, 12, 0, 'sabado'),
+(467, 9, 94, 318, 12, 27, 'segunda'),
+(468, 9, 94, 319, 12, 30, 'terça'),
+(469, 9, 94, 306, 12, 98, 'quarta'),
+(470, 9, 99, 310, 12, 30, 'quinta'),
+(471, 9, 94, 318, 12, 98, 'sexta'),
+(472, 9, 0, 381, 12, 0, 'sabado'),
+(473, 10, 94, 318, 12, 27, 'segunda'),
+(474, 10, 94, 319, 12, 30, 'terça'),
+(475, 10, 88, 320, 12, 99, 'quarta'),
+(476, 10, 99, 310, 12, 30, 'quinta'),
+(477, 10, 88, 382, 12, 24, 'quarta'),
+(478, 10, 94, 383, 12, 98, 'sexta'),
+(479, 1, 26, 321, 13, 4, 'segunda'),
+(480, 1, 91, 322, 13, 78, 'terça'),
+(481, 1, 91, 323, 13, 43, 'quarta'),
+(482, 1, 91, 324, 13, 88, 'quinta'),
+(483, 2, 81, 322, 13, 3, 'segunda'),
+(484, 2, 81, 324, 13, 88, 'terça'),
+(485, 2, 75, 323, 13, 8, 'quarta'),
+(486, 2, 30, 325, 13, 79, 'quinta'),
+(487, 3, 78, 326, 13, 100, 'segunda'),
+(488, 3, 48, 327, 13, 81, 'terça'),
+(489, 3, 48, 328, 13, 14, 'quarta'),
+(490, 3, 0, 329, 13, 5, 'quinta'),
+(491, 3, 81, 330, 13, 9, 'sexta');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `curso`
+--
+
+CREATE TABLE `curso` (
+  `id_curso` int(11) NOT NULL,
+  `nome_curso` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `curso`
+--
+
+INSERT INTO `curso` (`id_curso`, `nome_curso`) VALUES
+(1, 'Ciência da Computação'),
+(2, 'Administração'),
+(3, 'Agronomia'),
+(4, 'Arquitetura e Urbanismo'),
+(5, 'CTS em Estética e Cosmética '),
+(6, 'Direito Noturno'),
+(7, 'Educação Fisíca '),
+(8, 'Enfermagem Noturno'),
+(9, 'Engenharia Noturno'),
+(10, 'Engenharia Civil'),
+(11, 'Engenharia de Produção'),
+(12, 'Engenharia Florestal'),
+(13, 'Engenharia Mecânica'),
+(14, 'Engenharia Quimica'),
+(15, 'Farmácia'),
+(16, 'Fisioterapia Noturno'),
+(17, 'Nutrição'),
+(18, 'Odontologia Noturno'),
+(19, 'Pedagogia'),
+(20, 'Psicologia'),
+(21, 'Direito Matutino'),
+(22, 'Enfermagem Matutino'),
+(23, 'Engenharia Elétrica'),
+(24, 'Fisioterapia Matutino'),
+(25, 'Odontologia Matutino');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `disciplina`
+--
+
+CREATE TABLE `disciplina` (
+  `id_disc` int(11) NOT NULL,
+  `curso_id_curso` int(11) DEFAULT NULL,
+  `nome_disc` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `disciplina`
+--
+
+INSERT INTO `disciplina` (`id_disc`, `curso_id_curso`, `nome_disc`) VALUES
+(1, 1, 'Algoritmos e Estruturas de Dados'),
+(2, 1, 'Algoritmos e Estruturas de Dados Avançados'),
+(3, 1, 'Arquitetura e Organização de Computadores'),
+(4, 1, 'Arquiteturas Paralelas e Distribuidas'),
+(5, 1, 'Ciência da Computação e Profissão'),
+(6, 1, 'Ciência da Computação I'),
+(7, 1, 'Computação Gráfica e Processamento de Imagens'),
+(8, 1, 'Engenharia de Software'),
+(9, 1, 'Estágio Supervisionado I'),
+(10, 1, 'Física Geral'),
+(11, 1, 'Fundamentos de Redes de Computadores'),
+(12, 1, 'Gestão de Projetos'),
+(13, 1, 'Homem, Cultura e Sociedade'),
+(14, 1, 'Inteligência Artificial'),
+(15, 1, 'Inteligência Artificial'),
+(16, 1, 'Inteligência Artificial e Computacional'),
+(17, 1, 'Introdução a Computação'),
+(18, 1, 'Linguagens Formais e Autômatos'),
+(19, 1, 'Lógica e Matemática Computacional'),
+(21, 1, 'Metodologia Científica '),
+(22, 1, 'Métodos Numéricos e Aplicados'),
+(23, 1, 'Modelagem de Dados'),
+(24, 1, 'Optativa(Gestão de Projetos)'),
+(25, 1, 'Princípios de Telecomunicações'),
+(26, 1, 'Programação Orientada a Objetos'),
+(27, 1, 'Segurança de Redes'),
+(28, 1, 'Sistemas de Computação e Informação'),
+(29, 1, 'Sistemas Multimidia'),
+(30, 1, 'Sistemas Operacionais'),
+(31, 1, 'Trabalho de Conclusão de Curso I'),
+(32, 2, 'Métodos Quantitativos'),
+(33, 2, 'Modelos de Gestão'),
+(34, 2, 'Empreendedorismo'),
+(35, 2, 'Gestão de Projetos'),
+(36, 2, 'Responsabilidade Social e Ambiental'),
+(37, 2, 'Direito Empresarial'),
+(38, 2, 'Pesquisa Mercadológica'),
+(39, 2, 'Trabalho de Conclusão de Curso I'),
+(40, 2, 'Simulação Empresarial'),
+(41, 2, 'Gestão da Produção'),
+(42, 2, 'Microeconomia'),
+(43, 2, 'Teorias da Administração'),
+(44, 2, 'Contabilidade Introdutória'),
+(45, 2, 'Gestão de Pessoas'),
+(46, 2, 'Macroeconomia'),
+(48, 2, 'Análise de Custos'),
+(49, 2, 'Raciocinio Lógico Matemático'),
+(50, 2, 'Processos Logísticos'),
+(51, 2, 'Trabalho de Conclusão de Curso II'),
+(52, 3, 'Ciência do Solo: Morfologia e Gênese'),
+(53, 3, 'Biologia Celular e Molecular'),
+(54, 3, 'Química Geral'),
+(55, 3, 'Topografia e Georreferenciamento'),
+(56, 3, 'Química Orgânica'),
+(57, 3, 'Ciência do Solo: Fertilidade do Solo e Nutrição Mineral de Plantas'),
+(58, 3, 'Hidráulica'),
+(59, 3, 'Anatomia e Fisiologia Vegetal'),
+(60, 3, 'Fitopatologia Geral'),
+(61, 3, 'Forragicultura e Nutrição Animal'),
+(62, 3, 'Fruticultura'),
+(63, 3, 'Zoologia Geral'),
+(64, 3, 'Bioquímica'),
+(65, 3, 'Química Analítica'),
+(66, 3, 'Irrigação e Drenagem'),
+(67, 3, 'Máquinas e Mecanização Agrícola'),
+(68, 4, 'Introdução ao Projeto de Arquitetura e Urbanismo'),
+(69, 4, 'Geometria Descritiva Aplicada à Arquitetura I'),
+(70, 4, 'Atelier de Projeto de Arquitetura I'),
+(71, 4, 'Desenho Arquitetônico'),
+(72, 4, 'Conforto Ambiental: Acústico e Paisagismo I'),
+(73, 4, 'História e Teoria da Arquitetura, Urbanismo e Paisagismo I'),
+(74, 4, 'Ecologia Urbana'),
+(75, 4, 'Resistência dos Materiais'),
+(76, 4, 'Planejamento Urbano e Regional'),
+(77, 4, 'Atelier de Projeto de Arquitetura III'),
+(78, 4, 'Infraestrutura Urbana'),
+(79, 4, 'Instalações Elétricas de Baixa Tensão'),
+(80, 4, 'Urbanismo I'),
+(81, 4, 'História e Teoria da Arquitetura, Urbanismo e Paisagismo II'),
+(82, 4, 'História e Teoria da Arquitetura, Urbanismo e Paisagismo III'),
+(83, 4, 'Instalações Hidrossanitárias'),
+(84, 4, 'Tecnologia das Construções II'),
+(85, 4, 'Conforto Ambiental: Acústico e Lumínico'),
+(86, 1, 'Matemática Discreta'),
+(87, 1, 'Geometria Analítica e Algebra Vetorial'),
+(88, 1, 'Algorítimos e Técnicas de Programação'),
+(89, 1, 'Sistemas de Computação e Informação'),
+(90, 1, 'Sistemas Digitais'),
+(91, 1, 'Sistemas Distribuídos'),
+(92, 1, 'Análise de Computabilidade e Complexidade de Algorítimos'),
+(93, 1, 'Probabilidade e Estatística'),
+(94, 1, 'Compiladores'),
+(95, 1, 'Ciência da Computação II'),
+(96, 1, 'Segurança da Informação e de Redes'),
+(97, 1, 'Trabalho de Conclusão de Curso II'),
+(98, 1, 'Tecnologias para Web e para Dispositivos Móveis'),
+(99, 21, 'Introdução ao Estudo do Direito'),
+(100, 21, 'Direito Penal - Parte Geral'),
+(101, 21, 'Teoria Geral do Direito Constitucional'),
+(102, 21, 'Direito Civil - Pessoas e Bens'),
+(103, 21, 'Direito do Trabalho'),
+(104, 21, 'Direito Constitucional'),
+(105, 21, 'Direito Civil - Atos e Fatos Jurídicos'),
+(106, 21, 'Teoria Geral do Processo'),
+(107, 21, 'Teoria Geral do Processo Penal'),
+(108, 21, 'Ética, Politica e Cidadania'),
+(109, 21, 'Direito Processual Civil - Processo do Conhecimento'),
+(110, 21, 'Direito Econômico'),
+(111, 21, 'Direito Civil - Obrigações'),
+(112, 21, 'Direito Individual e Coletivo do Trabalho'),
+(113, 21, 'Direitos Humanos'),
+(114, 21, 'Teoria Geral da Empresa'),
+(115, 21, 'Direito Civil - Coisas'),
+(116, 21, 'Direito Administrativo - Organização Pública'),
+(117, 21, 'Direito das Relações de Consumo'),
+(118, 21, 'Direito Penal - Crimes Contra a Dignidade Sexual e Administração Pública'),
+(119, 21, 'Medicina Florence'),
+(120, 21, 'Direito Administrativo - Organização da Administração Publica'),
+(121, 21, 'Filosofia do Direito'),
+(122, 21, 'Meios Alternativos de Solução de Conflitos'),
+(123, 21, 'Direito Civil - Sucessões'),
+(124, 21, 'Direito de Falência e Recuperação de Empresa'),
+(125, 21, 'Trabalho de Conclusão de Curso I'),
+(126, 21, 'Direito e Processo Tributário'),
+(127, 21, 'Tópicos  Especiais do Direito I'),
+(128, 21, 'Direito Civil - Família'),
+(129, 21, 'Biodireito'),
+(130, 21, 'Trabalho de Conclusão de Curso III - Orientação e Defesa'),
+(131, 21, 'Estágio Supervisionado I'),
+(132, 21, 'Estágio Supervisionado II'),
+(133, 21, 'Estágio Supervisionado III'),
+(134, 21, 'Estágio Supervisionado IV'),
+(135, 6, 'Teoria Geral do Direito Constitucional'),
+(136, 0, 'Introdução ao Estudo do Direito'),
+(137, 6, 'Direito Civil - Pessoas e Bens'),
+(138, 6, 'Introdução ao Estudo do Direito'),
+(139, 6, 'Direito Penal - Parte Geral'),
+(142, 6, 'Direito do Trabalho'),
+(143, 6, 'Direito Civil - Atos e Fatos Jurídicos'),
+(145, 6, 'Direito Individual e Coletivo do Trabalho'),
+(146, 6, 'Teoria Geral do Processo'),
+(147, 6, 'Ética, Politica e Cidadania'),
+(148, 6, 'Direito Econômico'),
+(149, 6, 'Direito Civil - Obrigações'),
+(151, 6, 'Direito Processual Civil - Processo do Conhecimento'),
+(153, 6, 'Direito Politico e Eleitoral'),
+(154, 6, 'Direito Ambiental'),
+(155, 6, 'Direito Administrativo - Organização da Administração Publica'),
+(156, 6, 'Teoria Geral do Processo Penal'),
+(157, 6, 'Direito Civil - Coisas'),
+(158, 6, 'Teoria Geral da Empresa'),
+(159, 6, 'Direito da Seguridade Social'),
+(160, 6, 'Meios Alternativos de Solução de Conflitos'),
+(161, 6, 'Títulos de Crédito'),
+(162, 6, 'Estágio Supervisionado I'),
+(163, 6, 'Estágio Supervisionado II'),
+(164, 6, 'Estágio Supervisionado III'),
+(165, 6, 'Estágio Supervisionado IV'),
+(166, 6, 'Direito Penal - Legislação Extravagante e Execução Penal'),
+(167, 6, 'Direitos Humanos'),
+(168, 6, 'Trabalho de Conclusão de Curso I'),
+(169, 6, 'Responsabilidade Civil'),
+(170, 6, 'Filosofia do Direito'),
+(171, 6, 'Tópicos  Especiais do Direito I'),
+(172, 6, 'Direito e Processo Tributário'),
+(173, 6, 'Medicina Florence'),
+(174, 6, 'Finanças Publicas e Legislação Tributária'),
+(175, 6, 'Direito Administrativo I'),
+(176, 6, 'Direito Processual Civil - Parte Geral'),
+(177, 6, 'Ética, Profissional em Direito'),
+(178, 7, 'Fundamentos do Movimento Humano'),
+(179, 7, 'Práticas Pedagógica Gestão da Aprendizagem'),
+(180, 7, 'Crescimento e Desenvolvimento Humano'),
+(181, 7, 'Ciências Moleculares e Celulares'),
+(182, 7, 'Anatomia Aplicada a Educação Física'),
+(183, 7, 'Primeiros Socorros'),
+(184, 7, 'Psicologia da Educação e da Aprendizagem'),
+(185, 7, 'Metodologia Cientifica'),
+(186, 7, 'Aprendizagem Motora e Psicomotricidade'),
+(187, 7, 'Fisiologia do Exercício I'),
+(188, 7, 'Educação e Diversidade'),
+(189, 7, 'Metodologia do Ensino da Ginastica'),
+(190, 7, 'Metodologia do Ensino do Handbol'),
+(191, 7, 'Metodologia do Ensino do Voleibol'),
+(192, 7, 'Medidas e Avaliação em Educação Física'),
+(193, 7, 'Politicas Publicas da Educação Básica'),
+(194, 7, 'Metodologia do Ensino do Basquetebol'),
+(195, 7, 'Tópicos em Movimento Humano'),
+(196, 7, 'Educação Inclusiva'),
+(197, 7, 'Trabalho de Curso I'),
+(198, 7, 'Estágio Curricular II: Ensino Fundamental'),
+(199, 7, 'Fisiologia do Exercício'),
+(200, 7, 'Libras - Língua de Sinais Brasileira'),
+(201, 7, 'Trabalho de Curso'),
+(202, 7, 'Estágio Curricular III: Ensino Médio'),
+(203, 22, 'Saúde Mental'),
+(204, 22, 'Estágio Hospitalar'),
+(205, 22, 'Bioética e Legislação'),
+(206, 22, 'Estágio Supervisionado II'),
+(207, 8, 'Habilidades'),
+(208, 8, 'Enfermagem e Ciência'),
+(209, 8, 'Enfermagem e Trabalho'),
+(210, 8, 'Ciências Morfofuncionais dos Sistemas Imune e Hematológico'),
+(211, 8, 'Ciências Morfofuncionais dos Sistemas Tegumentar, Locomotor e Reprodutor'),
+(212, 8, 'Ciências Morfofuncionais dos Sistemas Nervoso e Cardiorrespiratório'),
+(213, 8, 'Didática Aplicada'),
+(214, 8, 'Formação Integral em Saúde'),
+(215, 8, 'Fundamentos Técnicos da Enfermagem'),
+(216, 8, 'Seminário Integrador na Saúde da Mulher'),
+(217, 8, 'Saúde do Trabalhador'),
+(218, 8, 'Trabalho de Conclusão de Curso I'),
+(219, 8, 'Trabalho de Conclusão de Curso II'),
+(220, 8, 'Empreendedorismo'),
+(221, 8, 'Estágio Supervisionado II'),
+(222, 8, 'Ciências Morfofuncionais dos Sistemas Digestório, Endócrino e Renal'),
+(223, 8, 'Fundamentos Semiológicos de Enfermagem'),
+(224, 8, 'Saúde Mental'),
+(225, 8, 'Sistematização da Assistência em Enfermagem'),
+(226, 8, 'Terapia Medicamentosa'),
+(227, 8, 'Gestão em Saúde'),
+(228, 8, 'Saúde Coletiva'),
+(229, 8, 'Enfermagem na Saúde do Idoso'),
+(230, 8, 'Enfermagem na Saúde da Mulher'),
+(231, 8, 'Urgência e Emergência'),
+(232, 8, 'Enfermagem na Saúde do Adulto'),
+(233, 8, 'Seminário Integrador na Saúde do Adulto'),
+(234, 8, 'Estágio Supervisionado I'),
+(235, 8, 'Bioética e Legislação em Enfermagem'),
+(236, 8, 'Estratégia na Saúde da Família'),
+(237, 10, 'Geometria Analítica e Algebra Vetorial'),
+(238, 10, 'Química Geral Experimental'),
+(239, 10, 'Desenho Técnico'),
+(240, 10, 'Algorítimos e Logica de Programação'),
+(241, 10, 'Matemática Instrumental'),
+(242, 10, 'Calculo Diferencial e Integral II'),
+(243, 10, 'Fenômenos de Transportes'),
+(244, 10, 'Metodologia Cientifica'),
+(245, 10, 'Física Geral e Experimental - Energia'),
+(246, 10, 'Gestão de Projetos'),
+(247, 10, 'Física Geral e Experimental - Mecânica'),
+(248, 10, 'Administração e Economia para Engenheiros'),
+(249, 10, 'Probabilidade e Estatística'),
+(250, 10, 'Princípios de Eletricidade e Magnetismo'),
+(251, 10, 'Calculo Diferencial e Integral III'),
+(252, 10, 'Logística Empresarial e Engenharia de Trafego'),
+(253, 10, 'Resistência dos Materiais'),
+(254, 10, 'Fundamentos da Mecânica dos Solos'),
+(255, 10, 'Materiais de Construção Civil I'),
+(256, 10, 'Resistência dos Materiais - Avançado'),
+(257, 10, 'Gestão e Saneamento Ambiental'),
+(258, 10, 'Estruturas Hiperestáticas'),
+(259, 10, 'Hidráulica e Hidrometria'),
+(260, 10, 'Estrutura de Concreto Armado I'),
+(261, 10, 'Materiais de Construção Civil II'),
+(262, 10, 'Estrutura de Concreto Armado II'),
+(263, 10, 'Estágio Curricular em Engenharia'),
+(264, 10, 'Estradas Pavimentadas'),
+(265, 10, 'Projeto Instalações Hidrossanitárias'),
+(266, 10, 'Estágio Supervisionado II'),
+(267, 10, 'Construções Metálicas'),
+(268, 10, 'Fundações e Obras de Terra'),
+(269, 10, 'Tecnologias das Construções II'),
+(270, 10, 'Orçamentos e Custos Industriais'),
+(271, 10, 'Tópicos  Especiais em Engenharia Civil'),
+(272, 10, 'Projeto Integrado Multidisciplinar III'),
+(273, 10, 'Projeto Integrado Multidisciplinar VI'),
+(274, 10, 'Trabalho de Conclusão de Curso II'),
+(275, 10, 'Trabalho de Conclusão de Curso I'),
+(276, 23, 'Física Geral e Experimental - Mecânica'),
+(277, 23, 'Legislação e Segurança no Trabalho'),
+(278, 23, 'Probabilidade e Estatística'),
+(279, 23, 'Matemática Instrumental'),
+(280, 23, 'Algorítimos e Logica de Programação'),
+(281, 23, 'Geometria Analítica e Algebra Vetorial'),
+(282, 23, 'Química Geral Experimental'),
+(283, 23, 'Desenho Técnico'),
+(284, 23, 'Calculo Diferencial e Integral II'),
+(285, 23, 'Princípios de eletricidade e Magnetismo'),
+(286, 23, 'Cálculo Diferencial II'),
+(287, 23, 'Sistemas Digitais'),
+(288, 23, 'Metodologia Cientifica'),
+(289, 23, 'Calculo Numerico'),
+(290, 23, 'Conversão Eletromecânica de Energia'),
+(291, 23, 'Calculo Diferencial e Integral IV'),
+(292, 23, 'Sistemas Elétricos de Potência I'),
+(293, 23, 'Máquinas Elétricas'),
+(294, 23, 'Instrumentação Eletroeletrônica'),
+(295, 23, 'Eletrônica Analógica II'),
+(296, 23, 'Eficiência Energética e Qualidade de Energia'),
+(297, 23, 'Eletrônica e Circuitos de Potência'),
+(298, 23, 'Projeto Integrado Multidisciplinar III'),
+(299, 23, 'Cálculo Avançado: Números Complexos e Equações Diferenciais'),
+(300, 23, 'Trabalho de Conclusão de Curso I'),
+(301, 23, 'Teoria do Controle Moderno'),
+(302, 23, 'Instalações Elétricas de Baixa Tensão'),
+(303, 23, 'Sistema Elétricos de Potência I'),
+(304, 12, 'Fenômenos de Transportes'),
+(305, 12, 'Calculo Diferencial e Integral III'),
+(306, 12, 'Tecnologia da Madeira e Industrialização'),
+(307, 12, 'Gestão Ambiental'),
+(308, 12, 'Legislação e Segurança no Trabalho'),
+(309, 12, 'Extensão e Administração Florestal'),
+(310, 12, 'Silvicultura e Sistemas Agrossilviculturais'),
+(311, 12, 'Princípios de Eletricidade e Magnetismo'),
+(312, 12, 'Fundamentos de Cálculo Aplicado'),
+(313, 12, 'Física Geral'),
+(314, 12, 'Desenho Técnico'),
+(315, 12, 'Algorítimos e Logica de Programação'),
+(316, 12, 'Dendrologia'),
+(317, 12, 'Ciência dos Materias'),
+(318, 12, 'Tópicos e Especiais em Engenharia Florestal'),
+(319, 12, 'Proteção e Incêndios Florestais'),
+(320, 12, 'Projeto Integrado Multidisciplinar IV'),
+(321, 13, 'Geometria Analítica e Algebra Vetorial'),
+(322, 13, 'Química Geral Experimental'),
+(323, 13, 'Algorítimos e Logica de Programação'),
+(324, 13, 'Desenho Técnico'),
+(325, 13, 'Matemática Instrumental'),
+(326, 13, 'Ciência dos Materiais'),
+(327, 13, 'Física Geral e Experimental - Mecânica'),
+(328, 13, 'Administração e Economia para Engenheiros'),
+(329, 13, 'Metodologia Cientifica'),
+(330, 13, 'Calculo Diferencial e Integral II'),
+(331, 13, 'Legislação e Segurança no Trabalho'),
+(332, 13, 'Metrologia e Controle Geométrico'),
+(333, 13, 'Física Geral e Experimental - Energia'),
+(334, 13, 'Fenômenos de Transportes'),
+(335, 13, 'Dinâmica de Corpos Rígidos'),
+(336, 13, 'Resistência dos Materiais - Avançado'),
+(337, 13, 'Mecânica dos Fluídos'),
+(338, 13, 'Gestão Ambiental'),
+(339, 13, 'Fundamentos de Lubrificação e Lubrificantes'),
+(340, 13, 'Elementos de Máquinas II'),
+(341, 13, 'Fundição e Processos Siderúrgicos/Sistemas Hidraul. e Pneumáticos'),
+(342, 13, 'Trabalho de Conclusão de Curso I'),
+(343, 13, 'Cálculo avançado:Números complexos e Equações Diferenciais'),
+(344, 13, 'Fundamentos de Lubrificação e Lubrificantes/ Manufatura Mecânica:soldagem'),
+(345, 13, 'Processo de Transferência de Calor'),
+(346, 13, 'Trabalho de Conclusão de Curso II'),
+(347, 13, 'Vibrações'),
+(348, 13, 'Projeto Integrado Multidisciplinar IV'),
+(349, 14, 'Geometria Analítica e Algebra Vetorial'),
+(350, 14, 'Química Geral Experimental'),
+(351, 14, 'Algorítimos e Logica de Programação'),
+(352, 14, 'Desenho Técnico'),
+(353, 14, 'Química Geral'),
+(354, 14, 'Matemática Instrumental'),
+(355, 14, 'Calculo Diferencial e Integral II'),
+(356, 14, 'Física Geral e Experimental - Mecânica'),
+(357, 14, 'Administração e Economia para Engenheiros'),
+(358, 14, 'Princípios de Eletricidade e Magnetismo'),
+(359, 14, 'Fenômenos de Transportes'),
+(360, 14, 'Metodologia Cientifica'),
+(361, 14, 'Física Geral e Experimental - Energia'),
+(362, 14, 'Fundamentos de Química Orgânica/Princípios de Processos Químicos'),
+(363, 14, 'Mecânica dos Fluídos'),
+(364, 14, 'Físico-Química'),
+(365, 14, 'Química Analítica'),
+(366, 5, 'Técnicas de Massagem Corporal'),
+(367, 5, 'Métodos Aplicados a Estética Corporal'),
+(368, 5, 'Ciências Morfofuncionais dos Sistemas Tegumentar, Locomotor e Reprodutor'),
+(369, 5, 'Ciências Moleculares e Celulares'),
+(370, 5, 'Técnicas Aplicadas à Estética Facial'),
+(371, 5, 'Ciências Morfofuncionais dos Sistemas Nervoso e Cardiorrespiratório'),
+(372, 5, 'Terapias Alternativas e Qualidade de Vida'),
+(373, 5, 'Cosmetologia Estética'),
+(374, 5, 'Primeiros Socorros/Estética Aplicada nas Intervenções Médicas Faciais'),
+(375, 5, 'Primeiros Socorros'),
+(376, 5, 'Estética Aplicada nas Interv. Médicas Corporais/Estética Aplic. nas Interv Médicas Faciais'),
+(377, 5, 'Métodos e Técnicas Aplicadas a Estética Corporal'),
+(378, 23, 'Engenharia e Profissão'),
+(379, 23, 'Estágio em Engenharia'),
+(380, 12, 'Estágio Cur. da Engenharia'),
+(381, 12, 'Trabalho de Conclusão de Curso I'),
+(382, 12, 'Trabalho de Conclusão de Curso II'),
+(383, 12, 'Tópicos Especiais em Engenharia Florestal II'),
+(384, 13, 'Mecânica Geral');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `professor`
+--
+
+CREATE TABLE `professor` (
+  `id_prof` int(11) NOT NULL,
+  `nome` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `professor`
+--
+
+INSERT INTO `professor` (`id_prof`, `nome`) VALUES
+(1, 'Adeílton Placido'),
+(2, 'Deivison'),
+(3, 'Flávio José'),
+(4, 'Flávio Ribeiro'),
+(5, 'Interativa'),
+(6, 'Jefferson Brito'),
+(7, 'João Santana'),
+(8, 'Julian Mayer'),
+(9, 'Juliana Gusmão'),
+(10, 'Manoel Neto'),
+(11, 'Ozeas Santos'),
+(14, 'Thiago Rizzo'),
+(15, 'Patrick Cesar'),
+(16, 'Bianca Greghi'),
+(17, 'Andressa Lima'),
+(18, 'Ariana De Brito'),
+(19, 'Caike Gama'),
+(20, 'Elisa Margarida'),
+(21, 'Juliana De Brito'),
+(22, 'Elisa'),
+(23, 'Jonathan Molar'),
+(24, 'Eduardo Henrique'),
+(25, 'Thais Mendes'),
+(26, 'Ana Paula Oliveira'),
+(27, 'Bruno Soares'),
+(28, 'Patricia Donatelli'),
+(29, 'Talita do Amaral'),
+(30, 'Carlos Eduardo'),
+(31, 'Alessandra Marsaro'),
+(32, 'Ivonilton Novais'),
+(33, 'Luis Gustavo Nunes'),
+(34, 'Luíza Leite'),
+(35, 'Victor Augusto'),
+(36, 'Edgar Argemi'),
+(37, 'Karine Rigo'),
+(38, 'Adriano Karashima'),
+(39, 'Deivson Leonardo'),
+(40, 'Emanoel Cancela'),
+(43, 'Emerson Almeida'),
+(45, 'Carla Rodrigues'),
+(46, 'Jaqueline Camata'),
+(47, 'Vinicius Ribeiro'),
+(49, 'Tatiane Santana'),
+(51, 'Osmundo'),
+(52, 'Guilherme Moreira'),
+(53, 'Leticia Pasolini'),
+(54, 'Magalhães Dantas'),
+(55, 'Luciano Porto'),
+(56, 'Rose Marie'),
+(57, 'Sandra Bastos'),
+(58, 'Raimundo Pasolini'),
+(59, 'Gilleard Batista'),
+(60, 'Rosane Aveiro'),
+(61, 'Zenite Sonia'),
+(62, 'Francielli Garcia'),
+(63, 'Estevon'),
+(64, 'Ikaro Souza'),
+(65, 'Eduardo Diel'),
+(66, 'Kildria Gigante'),
+(67, 'Soraya Emanuelle'),
+(68, 'Caio/Carla/Jackeline'),
+(69, 'Carla Laiber'),
+(70, 'Gleida Danese'),
+(71, 'Caio Rodrigues'),
+(72, 'Wagner'),
+(73, 'Jackeline Pires'),
+(74, 'Fabricio Sa'),
+(75, 'Vespertino/Pratica'),
+(76, 'Jackeline Pires - Vespertino/Prática'),
+(77, 'Carla Laiber/Fabricio Sa - Vespertino/prática'),
+(78, 'Aline Santos'),
+(79, 'Emanoel Jose'),
+(80, 'Tamiri'),
+(81, 'Gustavo Medeiros'),
+(82, 'Leticia Ribeiro'),
+(83, 'Anderson Almeida'),
+(84, 'Moab Garcia'),
+(85, 'José Henrique'),
+(86, 'Faustino'),
+(87, 'Eduarda Lopes'),
+(88, 'Luisa Leite'),
+(89, 'Emanoel José'),
+(90, 'Carolina Izabella'),
+(91, 'Juliana de Lima Brito'),
+(92, 'Alan Santos'),
+(93, 'Ana Paula Oliveira Souza'),
+(94, 'Emerson'),
+(95, 'Waldri'),
+(96, 'Jesuino Martins'),
+(97, 'Emerson Burmann'),
+(98, 'Daniel Barcellos'),
+(99, 'Izabel Zanuncio'),
+(100, 'Gess Shirlon'),
+(101, ' Sebastião Amilcar'),
+(102, 'Loredana'),
+(103, 'Gabriela do Nascimento'),
+(104, 'Ana Cristina'),
+(105, 'Geiza Sá'),
+(106, 'Laise Orlandi'),
+(107, 'Gustavo Lincolns');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `sala`
+--
+
+CREATE TABLE `sala` (
+  `id_sala` int(11) NOT NULL,
+  `nome_sala` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `localizacao` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `sala`
+--
+
+INSERT INTO `sala` (`id_sala`, `nome_sala`, `localizacao`) VALUES
+(3, 'Sala 05', '-17.550458,-39.723344'),
+(5, 'Sala 04', '-17.550538, -39.723044'),
+(7, 'Sala 03', '-17.550566,-39.723247'),
+(8, 'Sala 02', '-17.550613,-39.723164'),
+(9, 'Sala 06', '-17.550433,-39.723383'),
+(10, 'Sala 07', '-17.550407,-39.723442'),
+(11, 'Sala 08', '-17.550380,-39.723506'),
+(12, 'Sala 09', '-17.550341,-39.723571'),
+(13, 'Sala 10', '-17.550293,-39.723651'),
+(14, 'Sala 11', '-17.550231, -39.723734'),
+(15, 'Sala 12', '-17.550201,-39.723804'),
+(16, 'Sala 13', '-17.550159,-39.723877'),
+(17, 'Sala 14', '-17.550131,-39.723942'),
+(18, 'Sala 15', '-17.550114,-39.723993'),
+(19, 'Sala 16', '-17.550077,-39.724039'),
+(20, 'Sala 18', '-17.550005,-39.724138'),
+(21, 'Sala 17', '-17.550042,-39.724067'),
+(22, 'Sala 19', '-17.550103,-39.724238'),
+(23, 'Sala 20', '-17.550138,-39.724251'),
+(26, 'Sala 21', '-17.550183,-39.724280'),
+(27, 'Sala 22', '-17.550252,-39.724304'),
+(28, 'Sala 23', '-17.550298,-39.724332'),
+(29, 'Sala 24', '-17.550355,-39.724374'),
+(30, 'Sala 25', '-17.550206,-39.724099'),
+(31, 'Sala 26', '-17.550268,-39.723970'),
+(32, 'Sala 27', '-17.550332,-39.723832'),
+(33, 'Sala 28', '-17.550453,-39.723639'),
+(34, 'Sala 29 - Desenho Técnico II', '-17.550504,-39.723534'),
+(35, 'Sala 30 - Desenho Técnico I ', '-17.550565,-39.723409'),
+(36, 'Sala 31', '-17.550388,-39.724202'),
+(37, 'Sala 32', '-17.550454,-39.724094'),
+(38, 'Sala 35', '-17.550531,-39.723947'),
+(39, 'Sala 36', '-17.550666,-39.723687'),
+(40, 'Sala 37', '-17.550700,-39.723615'),
+(41, 'Sala 38', '-17.550763,-39.723493'),
+(42, 'Sala 39 - Andar', '-17.551407,-39.723725'),
+(43, 'Sala 40', '-17.550930,-39.723782'),
+(44, 'Sala 41', '-17.551015,-39.723810'),
+(45, 'Sala 42', '-17.551081,-39.723882'),
+(46, 'Sala 43', '-17.551200,-39.723989'),
+(47, 'Sala 44', '-17.550859,-39.723764'),
+(48, 'Sala 45 - Andar 1', '-17.550771,-39.723864'),
+(49, 'Sala 46 - Andar 1', '-17.550834,-39.723904'),
+(50, 'Sala 47 - Andar 1', '-17.550897,-39.723944'),
+(51, 'Sala 48 - Andar 1', '-17.550951,-39.723984'),
+(52, 'Sala 49 - Andar 1', '-17.551029,-39.724029'),
+(53, 'Sala 50 - Andar 1', '-17.550971,-39.724134'),
+(54, 'Sala 51 - Andar 1', '-17.550895,-39.724094'),
+(55, 'Sala 52 - Andar 1', '-17.550837,-39.724042'),
+(56, 'Sala 53 - Andar 1', '-17.550757,-39.724020'),
+(57, 'Sala 54 - Andar 1', '-17.550690,-39.723976'),
+(58, 'Sala 55 - Andar 2', '-17.550972,-39.724094'),
+(59, 'Sala 56 - Andar 2', '-17.550901,-39.724058'),
+(60, 'Sala 57 - Andar 2', '-17.550826,-39.724012'),
+(61, 'Sala 58 - Andar 2', '-17.550760,-39.723993'),
+(62, 'Sala 59 - Andar 2', '-17.550702,-39.723962'),
+(63, 'Sala 60 ', '-17.550743,-39.724106'),
+(64, 'Sala 61', '-17.550801,-39.724128'),
+(65, 'Sala 62', '-17.550880,-39.724190'),
+(66, 'Sala 63', '-17.550949,-39.724237'),
+(67, 'Sala 64', '-17.551034,-39.724306'),
+(68, 'Sala 65', '-17.551109,-39.724388'),
+(69, 'Sala 66', '-17.551051,-39.724529'),
+(70, 'Sala 67', '-17.550976,-39.724484'),
+(71, 'Sala 68', '-17.550891,-39.724430'),
+(72, 'Sala 69', '-17.550801,-39.724386'),
+(73, 'Sala 70 - Andar', '-17.550591,-39.724050'),
+(74, 'Sala 71 - Andar', '-17.550648,-39.724089'),
+(75, 'Sala 72 - Andar', '-17.550731,-39.724118'),
+(76, 'Sala 73 - Andar', '-17.550789,-39.724161'),
+(77, 'Sala 74 - Andar', '-17.550911,-39.724268'),
+(78, 'Sala 75 - Andar', '-17.550977, -39.724318'),
+(79, 'Sala 76 - Andar', '-17.551058,-39.724368'),
+(80, 'Sala 77 - Andar', '-17.551131,-39.724429'),
+(81, 'Sala 78 - Andar', '-17.551111,-39.724524'),
+(82, 'Sala 79 - Andar', '-17.551043,-39.724477'),
+(83, 'Sala 80 - Andar', '-17.550977,-39.724436'),
+(84, 'Sala 81 - Andar', '-17.550915,-39.724401'),
+(85, 'Sala 82 - Andar', '-17.550780,-39.724323'),
+(86, 'Sala 83 - Andar', '-17.550725,-39.724295'),
+(87, 'Sala 84 - Andar', '-17.550643,-39.724251'),
+(88, 'Sala 85 - Andar', '-17.550574,-39.724196'),
+(89, 'Sala 86 ', '-17.550776,-39.724469'),
+(90, 'Sala 87', '-17.550908,-39.724717'),
+(91, 'Sala 88', '-17.550816,-39.724666'),
+(92, 'Sala 89', '-17.550733,-39.724609'),
+(93, 'Sala 90', '-17.550610,-39.724551'),
+(94, 'Sala 91', '-17.550532,-39.724508'),
+(95, 'Sala 92', '-17.550457,-39.724464'),
+(96, 'Sala 93 - Andar', '-17.550490,-39.724306'),
+(97, 'Sala 94 - Andar', '-17.550535,-39.724390'),
+(98, 'Sala 95 - Andar', '-17.550633,-39.724424'),
+(99, 'Sala 96 - Andar', '-17.550717,-39.724484'),
+(100, 'Sala 97 - Andar', '-17.550827,-39.724550'),
+(101, 'Sala 98 - Andar', '-17.550911,-39.724614'),
+(102, 'Sala 99 - Andar', '-17.551000,-39.724655'),
+(103, 'Sala 100 - Andar', '-17.550980,-39.724720'),
+(104, 'Sala 101 - Andar', '-17.550936,-39.724669'),
+(105, 'Sala 102 - Andar', '-17.550851,-39.724624'),
+(106, 'Sala 103 - Andar', '-17.550725,-39.724552'),
+(107, 'Sala 104 - Andar', '-17.550640,-39.724492'),
+(108, 'Sala 105 - Andar', '-17.550556,-39.724455'),
+(109, 'Sala 106 - Andar', '-17.550491,-39.724414'),
+(110, 'Lab. Informática I', '-17.551032,-39.723168'),
+(111, 'Lab. Informática II', '-17.551092,-39.723223'),
+(112, 'Lab. Informática III', '-17.551114,-39.723030'),
+(113, 'Lab. Informática IV', '-17.551143,-39.722948'),
+(114, 'Lab. Informática V', '-17.551248,-39.723024'),
+(115, 'Lab. Informática VI', '-17.551293,-39.723044'),
+(116, 'Lab. Informática VII', '-17.551359,-39.723082'),
+(117, 'Lab. Informática VIII', '-17.551069,-39.723289'),
+(118, 'Lab. Hardware e Telecomunicações', '-17.551111, -39.723495'),
+(119, 'Lab. Cosmetologia', '-17.550997,-39.723236'),
+(120, 'Lab. Imagem Pessoal', '-17.551144,-39.723344'),
+(121, 'Lab. Tecnologia de Alimentos', '-17.551221,-39.723373'),
+(122, 'Lab. Anatomia', '-17.550959, -39.723395'),
+(123, 'Lab. Bioquímica e Microbiologia', '-17.551001, -39.723414'),
+(124, 'Lab. Microscopia', '-17.551039, -39.723447'),
+(125, 'Lab. Biodiversidade e Biotecnologia', '-17.551299,-39.723580'),
+(126, 'Lab. Motores e Tecnologia de Soldagem', '-17.551363,-39.723638'),
+(127, 'Lab. Sementes', '-17.551230,-39.723654'),
+(128, 'Lab. Microscopia II', '-17.550996,-39.723502'),
+(129, 'Lab. Fisioterapia I', '-17.551160,-39.723898'),
+(130, 'Lab. Fisioterapia II', '-17.550490,-39.724012'),
+(131, 'Lab. Morfofuncionais', '-17.550600,-39.723826'),
+(132, 'Lab. Avaliação Nutricional', '-17.550618,-39.723781'),
+(133, 'Lab. Pré-Clínico Odontológico', '-17.550761,-39.723697'),
+(134, 'Lab. Estética Facial - Andar', '-17.550854,-39.724373'),
+(135, 'Lab. Hidráulica', '-17.551040,-39.724607'),
+(136, 'Lab. Sistema Térmicos', '-17.550863,-39.724524'),
+(137, 'Lab. Físcia Resistência', '-17.550948,-39.724581'),
+(138, 'Lab. Bromatologia', '-17.550984,-39.724768'),
+(139, 'Lab. Maquetaria', '-17.550563,-39.724345'),
+(140, 'Lab. Solo e Tipografia', '-17.550508,-39.724302'),
+(141, 'Depósitos de Materiais Esportivos', '-17.551101,-39.724566'),
+(142, 'Farmácia Universitária', '-17.550555,-39.724237'),
+(143, 'Clínica de Psicologia e Fisioterapia', '-17.550822,-39.724047'),
+(144, 'Núcleo de Prática Jurídica - Balcão de Justiça', '-17.550785,-39.723862'),
+(145, 'Centro de Idiomas', '-17.551434,-39.723111'),
+(146, 'SAA', '-17.551038,-39.722471'),
+(147, 'SICP', '-17.550817,-39.722705'),
+(148, 'Tecnologia da Informação - TI', '-17.550682,-39.722661'),
+(149, 'NAPE', '-17.550652,-39.722707'),
+(150, 'Gabinete Integral I', '-17.550633,-39.722739'),
+(151, 'Coordenação e Tutorial EAD', '-17.550939,-39.722787'),
+(152, 'Coordenação de Laboratórios', '-17.550643,-39.723299'),
+(153, 'Lab. Enfermagem', '-17.550711,-39.723163'),
+(154, 'Brinquedoteca', '-17.550494,-39.723159'),
+(155, 'Biblioteca', '-17.551250,-39.723305'),
+(156, 'Auditório', '-17.552288,-39.723155'),
+(157, 'Quadra de Esportes', '-17.551760,-39.723776'),
+(158, 'Pista de Atletismo', '-17.551289,-39.724833'),
+(159, 'Gabinete Integral Docente', '-17.550023, -39.724198'),
+(160, 'Cantina Universitária', '-17.551563, -39.723208'),
+(161, 'Lab. de Dança', '-17.551668,-39.724118'),
+(162, 'Lab. Construção Civil e Topografia', '-17.551577,-39.724283'),
+(163, 'LACOFIS', '-17.551626,-39.724187'),
+(164, 'Coordenação', '-17.550793, -39.723016'),
+(165, 'Sala de Professores', '-17.550709, -39.722952'),
+(166, 'Sala de Reuniões', '-17.550901,-39.722655'),
+(167, 'Direção Geral', '-17.550983,-39.722686'),
+(168, 'Comercial - Atend. Novos Alunos', '-17.550924, -39.722792'),
+(169, 'Recepção', '-17.550826,-39.722947'),
+(170, 'Pós Graduação', '-17.550903,-39.722873');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_sugestoes`
+--
+
+CREATE TABLE `tb_sugestoes` (
+  `id` int(12) NOT NULL,
+  `titulo` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `sugestoes` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `data_envio` date NOT NULL,
+  `data_lido` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tb_sugestoes`
+--
+
+INSERT INTO `tb_sugestoes` (`id`, `titulo`, `sugestoes`, `data_envio`, `data_lido`) VALUES
+(1, 'Julian', 'Alterar a logomarca!!', '0000-00-00', '2018-08-15'),
+(3, 'Pedro', 'Agora você pode ver as sugestões enviadas na pagina do usuário e marcar pra ler depois além de poder ver todas as sugestões enviadas com as datas de envio e leitura.', '2018-07-05', '2018-08-17');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipo_usuario`
+--
+
+CREATE TABLE `tipo_usuario` (
+  `id_tipo_usuario` int(11) NOT NULL,
+  `nivel` int(11) DEFAULT NULL,
+  `nome_tipo` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `tipo_usuario`
+--
+
+INSERT INTO `tipo_usuario` (`id_tipo_usuario`, `nivel`, `nome_tipo`) VALUES
+(1, 1, 'aluno'),
+(2, 2, 'professor'),
+(3, 3, 'administrador');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `turma`
+--
+
+CREATE TABLE `turma` (
+  `id_turma` int(11) NOT NULL,
+  `periodo` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `turma`
+--
+
+INSERT INTO `turma` (`id_turma`, `periodo`) VALUES
+(1, '1° período'),
+(2, '2° período'),
+(3, '3° período'),
+(4, '4° período'),
+(5, '5° período'),
+(6, '6° período'),
+(7, '7° período'),
+(8, '8° período'),
+(9, '9° período'),
+(10, '10° período'),
+(11, '11° período'),
+(12, '12° período'),
+(13, '13° período'),
+(14, '14° período');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuarios` int(11) NOT NULL,
+  `tipo_usuario_id_tipo_usuario` int(11) DEFAULT NULL,
+  `nome` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `apelido` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `data_cadastro` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuarios`, `tipo_usuario_id_tipo_usuario`, `nome`, `apelido`, `password`, `email`, `data_cadastro`) VALUES
+(1, NULL, 'nome', 'administrador', '7d8f743777a5ecc567207a776c91d23a', 'adm@cademeuprofessor.com', '2018-06-25 14:58:51');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `aula`
+--
+ALTER TABLE `aula`
+  ADD PRIMARY KEY (`id_aula`),
+  ADD KEY `aula_FKIndex1` (`professor_id_prof`),
+  ADD KEY `aula_FKIndex2` (`curso_id_curso`),
+  ADD KEY `aula_FKIndex3` (`disciplina_id_disc`),
+  ADD KEY `aula_FKIndex4` (`sala_id_sala`),
+  ADD KEY `aula_FKIndex5` (`turma_id_turma`);
+
+--
+-- Indexes for table `curso`
+--
+ALTER TABLE `curso`
+  ADD PRIMARY KEY (`id_curso`);
+
+--
+-- Indexes for table `disciplina`
+--
+ALTER TABLE `disciplina`
+  ADD PRIMARY KEY (`id_disc`),
+  ADD KEY `disciplina_FKIndex1` (`curso_id_curso`);
+
+--
+-- Indexes for table `professor`
+--
+ALTER TABLE `professor`
+  ADD PRIMARY KEY (`id_prof`);
+
+--
+-- Indexes for table `sala`
+--
+ALTER TABLE `sala`
+  ADD PRIMARY KEY (`id_sala`);
+
+--
+-- Indexes for table `tb_sugestoes`
+--
+ALTER TABLE `tb_sugestoes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tipo_usuario`
+--
+ALTER TABLE `tipo_usuario`
+  ADD PRIMARY KEY (`id_tipo_usuario`);
+
+--
+-- Indexes for table `turma`
+--
+ALTER TABLE `turma`
+  ADD PRIMARY KEY (`id_turma`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuarios`),
+  ADD KEY `usuarios_FKIndex1` (`tipo_usuario_id_tipo_usuario`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `aula`
+--
+ALTER TABLE `aula`
+  MODIFY `id_aula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=492;
+
+--
+-- AUTO_INCREMENT for table `curso`
+--
+ALTER TABLE `curso`
+  MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT for table `disciplina`
+--
+ALTER TABLE `disciplina`
+  MODIFY `id_disc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=385;
+
+--
+-- AUTO_INCREMENT for table `professor`
+--
+ALTER TABLE `professor`
+  MODIFY `id_prof` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+
+--
+-- AUTO_INCREMENT for table `sala`
+--
+ALTER TABLE `sala`
+  MODIFY `id_sala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+
+--
+-- AUTO_INCREMENT for table `tb_sugestoes`
+--
+ALTER TABLE `tb_sugestoes`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tipo_usuario`
+--
+ALTER TABLE `tipo_usuario`
+  MODIFY `id_tipo_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `turma`
+--
+ALTER TABLE `turma`
+  MODIFY `id_turma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
