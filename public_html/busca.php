@@ -27,14 +27,14 @@ or die("<br>Erro: ".mysqli_error($con));
     while ($resultado = mysqli_fetch_array($professor)) {
         ?>
   <div class="btn-group-vertical col">
-    <a href="exibe_sala.php?p=<?php echo $resultado["nome"]?>" class="btn btn-outline-light rounded-0"  style="background-color:#ee7f22"><?php echo $resultado["nome"]?></a>
+    <a href="exibe_sala_busca.php?p=<?php echo $resultado["nome"]?>" class="btn btn-outline-light rounded-0"  style="background-color:#ee7f22"><?php echo $resultado["nome"]?></a>
   </div>
   <?php
     } // fim while
     while ($resultado = mysqli_fetch_array($disciplina)) {
         ?>
   <div class="btn-group-vertical col">
-    <a href="exibe_sala.php?d=<?php echo $resultado["nome_disc"]?>" class="btn btn-outline-light rounded-0"  style="background-color:#ee7f22"><?php echo $resultado["nome_disc"]?> - <?php echo $resultado["nome_curso"]?></a>
+    <a href="exibe_sala_busca.php?d=<?php echo $resultado["nome_disc"]?>" class="btn btn-outline-light rounded-0"  style="background-color:#ee7f22"><?php echo $resultado["nome_disc"]?> - <?php echo $resultado["nome_curso"]?></a>
   </div>
 <?php
     } // fim while

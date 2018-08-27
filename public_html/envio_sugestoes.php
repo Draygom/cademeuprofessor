@@ -7,7 +7,7 @@ include("menu.php");
 
   <div class="card">
     <div class="card-body">
-      <h3 class="display-5" style="text-align:center; color:#626262;">Enviar Sugestão</h3>
+      <h3 class="display-5" style="text-align:center; color:#626262;">Envie uma Sugestão ou reporte um erro</h3>
 
       <?php include("insert_sugestoes.php"); ?>
       <form name="form" method="post" action="">
@@ -16,9 +16,9 @@ include("menu.php");
 
           <label for="titulo">Nome:</label>
           <input for="titulo" type="titulo" class="form-control my-1" placeholder="Por favor informe o seu nome" name="titulo" required />
-        
-          <label for="sugestoes">Sugestão:</label>
-          <textarea for="sugestoes" rows="3" type="sugestoes" class="form-control" id="forms" placeholder="Sugestão" name="sugestoes" required></textarea>
+
+          <label for="sugestoes">Sugestão/erro:</label>
+          <textarea for="sugestoes" rows="3" type="sugestoes" class="form-control" id="forms" placeholder="Escreva aqui..." name="sugestoes" required></textarea>
         </div>
 
         <button type="submit" class="btn btn-warning">Enviar</button>
