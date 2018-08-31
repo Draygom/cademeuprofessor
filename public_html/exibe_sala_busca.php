@@ -1,6 +1,7 @@
 <?php
 require("dbcon.php");
 include("menu.php");
+date_default_timezone_set('America/Sao_Paulo');
 ?>
     <title>Sala</title>
      <?php
