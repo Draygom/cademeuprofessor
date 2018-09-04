@@ -2,7 +2,7 @@
     include("menu.php");
     require('dbcon.php');
     //verifica se o usuario ja nao está logado.
-    if (!isset($_SESSION['id_usuarios'])) {
+    if (!isset($_SESSION["apelido"]) && !isset($_SESSION["id_usuarios"])) {
     // se coloca usuario e senha no formulario e envia
     if (isset($_POST['apelido'])) {
         $apelido = stripslashes($_REQUEST['apelido']); // remove barras invertidas

@@ -1,10 +1,26 @@
 <?php
+// If the user is logged in, delete the session vars to log them out
 session_start();
-if(session_destroy()) // Destroe todas as sessoes
-{
-  // Deleta o IS e o usuario dos cookies colocando uma data de expiração à uma hora atras
-  setcookie('id_usuarios', '', time() - 3600);
-  setcookie('apelido', '', time() - 3600);
-  header("Location: index.php"); // redireciona para a pagina inicial
+if (isset($_SESSION['id_usuarios'])) {
+  // Delete the session vars by clearing the $_SESSION array
+  $_SESSION = array();
+
+  // Delete the session cookie by setting its expiration to an hour ago (3600)
+  if (isset($_COOKIE[session_name()])) {
+      setcookie(session_name(), '', time() - 3600);
+    }
+
+  // Destroy the session
+  session_destroy();
 }
+
+// Delete the user ID and username cookies by setting their expirations to an hour ago (3600)
+// PRECISA TER O MESMO CAMINHO QUE O COOKIE FOI SETADO QUANDO CRIADO
+setcookie('id_usuarios', '', time() - 3600, "/", "cademeuprofessor.com");
+setcookie('apelido', '', time() - 3600, "/", "cademeuprofessor.com");
+
+// Redirect to the home page
+$home_url = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . 'index.php';
+header('Location: ' . $home_url);
+
 ?>

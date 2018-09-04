@@ -6,7 +6,10 @@ if (!isset($_SESSION['id_usuarios'])) {
     $_SESSION['apelido'] = $_COOKIE['apelido'];
   }
 }
-header("Content-type: text/html; charset=utf-8");
+/* if ($_SERVER['HTTPS']!="on") {
+        $redirect= "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        header("Location:$redirect");
+    }*/
 ?>
 <html>
 <head>
