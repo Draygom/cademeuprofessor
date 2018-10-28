@@ -22,6 +22,7 @@ if (!isset($_SESSION['id_usuarios'])) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <style type="text/css">
   .form-control:focus {
         border-color: #ee7f22;
@@ -67,9 +68,38 @@ if (!isset($_SESSION['id_usuarios'])) {
     </div>
   </nav>
   <?php } ?>
-    <form class="form-inline" name="frm_busca" action="busca.php" method="get">
-      <input type="text" id="b" name="b" class="form-control col rounded-0 border-right-0" placeholder="Professor ou disciplina..." aria-label="pesquisa">
-      <div class="input-group-append">
-        <button class="btn btn-light" type="submit">Buscar</button>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.search-box input[type="text"]').on("keyup input", function(){
+          /* Get input value on change */
+          var inputVal = $(this).val();
+          var resultDropdown = $(this).siblings(".result");
+          if(inputVal.length){
+              $.get("livesearch.php", {term: inputVal}).done(function(data){
+                  // Display the returned data in browser
+                  resultDropdown.html(data);
+              });
+          } else{
+              resultDropdown.empty();
+          }
+      });
+
+      // Set search input value on click of result item
+      $(document).on("click", ".result p", function(){
+          $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+          $(this).parent(".result").empty();
+      });
+    });
+  </script>
+  <div class="search-box">
+    <form class="" name="frm_busca" action="busca.php" method="get">
+      <div class="form-group">
+        <input type="text" autocomplete="off" id="b" name="b" class="form-control rounded-0 border-right-0" placeholder="Professor ou disciplina..." aria-label="pesquisa">
+        <!-- <div class="input-group-append">
+          <button class="btn btn-light" type="submit">Buscar</button>
+        </div> -->
+        <div class="result btn-group-vertical col"></div>
       </div>
     </form>
+  </div>
