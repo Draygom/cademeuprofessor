@@ -1,4 +1,6 @@
-# Cadê Me Profesor?
+# Cadê Me Professor?
+
+Antigo projeto que eu fiz para o curso de Ciencia da Computação da faculdade Pitágoras de Teixeira de Freitas - BA, um portal para encontrar em qual sala do campus será a sua próxima aula.
 
 Informações sobre os nomes dos arquivos do projeto:
 auth.php - faz a autenticação de usuário verificando com o banco de dados.
